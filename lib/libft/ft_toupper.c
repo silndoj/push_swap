@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/01 14:49:52 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/03 03:41:33 by silndoj          ###   ########.fr       */
+/*   Created: 2024/03/11 19:45:26 by silndoj           #+#    #+#             */
+/*   Updated: 2024/03/11 19:54:24 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+//#include <stdio.h>
+#include "libft.h"
 
-int main (int argc, char **argv)
+int	ft_toupper(int c)
 {
-	int	i;
-	int	j;
-
-	i = 1;
-	j = 0;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
-	else if (argc == 2)
-		argv = split(argv[1], ' ');
-	while (!argv[i])
-	{
-		while (argv[i][j])
-		{
-			if (!(argv[i][j] >= 48 && argv[i][j] <= 57))
-				printf("Error\n");
-			j++;
-		}
-		i++;
-	}
+	if ((c >= 97) && (c <= 122))
+		return (c - 32);
+	else
+		return (c);
 }
+//
+//int main()
+//{
+//	int c;
+//	int c1;
+//
+//	c = 122;
+//	printf("c = %c\n",c);
+//	c1 = ft_toupper(c);
+//	printf("c/1 = %c\n", c1);
+//}

@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_count.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/01 14:49:52 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/03 03:41:33 by silndoj          ###   ########.fr       */
+/*   Created: 2024/03/27 12:57:47 by silndoj           #+#    #+#             */
+/*   Updated: 2024/03/30 14:28:53 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "ft_printf.h"
 
-int main (int argc, char **argv)
+void	ft_putnbr_count(int nr, int *count)
 {
-	int	i;
-	int	j;
-
-	i = 1;
-	j = 0;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
-	else if (argc == 2)
-		argv = split(argv[1], ' ');
-	while (!argv[i])
+	if (nr == -2147483648)
+		ft_putstr_count("-2147483648", count);
+	else
 	{
-		while (argv[i][j])
+		if (nr < 0)
 		{
-			if (!(argv[i][j] >= 48 && argv[i][j] <= 57))
-				printf("Error\n");
-			j++;
+			ft_putchar_count('-', count);
+			nr *= -1;
 		}
-		i++;
+		if (nr >= 0 && nr < 10)
+			ft_putchar_count(nr + 48, count);
+		if (nr > 9)
+		{
+			ft_putnbr_count(nr / 10, count);
+			ft_putnbr_count(nr % 10, count);
+			count++;
+		}
 	}
 }

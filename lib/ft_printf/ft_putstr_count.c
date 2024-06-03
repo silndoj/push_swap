@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_count.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/01 14:49:52 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/03 03:41:33 by silndoj          ###   ########.fr       */
+/*   Created: 2024/03/27 12:47:41 by silndoj           #+#    #+#             */
+/*   Updated: 2024/03/30 18:57:06 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "ft_printf.h"
 
-int main (int argc, char **argv)
+void	ft_putstr_count(char *ptr, int *count)
 {
-	int	i;
-	int	j;
+	size_t	i;
 
-	i = 1;
-	j = 0;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
-	else if (argc == 2)
-		argv = split(argv[1], ' ');
-	while (!argv[i])
-	{
-		while (argv[i][j])
-		{
-			if (!(argv[i][j] >= 48 && argv[i][j] <= 57))
-				printf("Error\n");
-			j++;
-		}
+	i = 0;
+	if (!ptr)
+		ptr = "(null)\0";
+	while (ptr[i])
 		i++;
-	}
+	write(1, ptr, i);
+	*count += i;
 }

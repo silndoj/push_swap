@@ -1,34 +1,61 @@
-CFlags = -Wall -Wextra -Werror
+CFlags			=	-Wall -Wextra -Werror
+PUSH_SWAP		=	push_swap
+NAME			=	$(PUSH_SWAP)
 
-LIBFT = Libft/
+#LIB
+LIBFT			=	libft.a
+LIBFT_LIB		=	lib/libft
+LIBFT_A			=	$(LIBFT_LIB)/$(LIBFT)
+CFLAGS			+=	-I $(LIBFT_LIB)
 
-PRINTF = ft_printf/
+FT_PRINTF		=	ft_printf.a
+FT_PRINTF_LIB	=	lib/ft_printf
+FT_PRINTF_A		=	$(PRINTF_LIB)/$(PRINTF)
+CFLAGS			+=	-I $(PRINTF_LIB)
 
-SRC = src/
+MAKE			=	make --no-print-directory -C
 
-CFILES = $(src:%=%.c)
+#SRC
+PUSH_SWAP_SRC	=	src/push_swap.c
+PUSH_SWAP_INC	=	inc/push_swap.h
 
-OFILES = $(src:%=%.o)
+#RULES	
+all:			$(PUSH_SWAP)
 
-NAME = push_swap
+obj:
+					mkdir -p obj
 
-$(NAME) :
-	@make -sC $(LIBFT)
-	@make -sC $(PRINTF)
-	cc $(CFlags) -o $(NAME) $(OFILES) -L$(LIBFT) -lft -L$(PRINTF) -lftprintf
+LIB					=	$(LIBFT_A) $(FT_PRINTF_A)
+PUSH_SWAP_OBJ		=	$(PUSH_SWAP_SRC:%.c=obj/push_swap/%.o)
 
-all : $(NAME)
+$(PUSH_SWAP_OBJ):	obj/push_swap/%.o: %.c $(PUSH_SWAP_INC)
+					@mkdir -p $(dir $@)
+					$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
-	rm -rf $(OFILES)
-	@cd $(LIBFT) && $(MAKE) clean
-	@cd $(PRINTF) && $(MAKE) clean
+$(LIBFT_A):
+					$(MAKE) $(LIBFT_LIB)
+$(FT_PRINTF_A):
+					$(MAKE) $(FT_PRINTF_LIB)
 
-fclean: clean
-	rm -rf $(NAME)
-	@cd $(LIBFT) && $(MAKE) fclean
-	@cd $(PRINTF) && $(MAKE) fclean
+$(PUSH_SWAP):		$(LIB) $(PUSH_SWAP_OBJ)
+					gcc $(CFLAGS) $(LIB) $(PUSH_SWAP_OBJ) -o $@
 
-re: fclean all
 
-.PHONY: all, clean, fclean, re
+lib_clean:
+					$(MAKE) $(LIBFT_LIB) clean
+					$(MAKE) $(FT_PRINTF_LIB) clean
+
+lib_fclean:
+					$(MAKE) $(LIBFT_LIB) fclean
+					$(MAKE) $(FT_PRINTF_LIB) fclean
+
+clean:				lib_clean
+						rm -rf obj
+
+fclean:				clean lib_fclean
+						rm -rf $(NAME)
+
+re:					fclean all
+
+
+.PHONY: all, clean, fclean, re 

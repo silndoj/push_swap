@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/01 14:49:52 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/03 03:41:33 by silndoj          ###   ########.fr       */
+/*   Created: 2024/03/06 17:04:42 by silndoj           #+#    #+#             */
+/*   Updated: 2024/03/11 13:27:49 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+//#include <stdio.h>
+//#include <unistd.h>
+//
+#include "libft.h"
 
-int main (int argc, char **argv)
+int	ft_isalpha(int c)
 {
-	int	i;
-	int	j;
-
-	i = 1;
-	j = 0;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
-	else if (argc == 2)
-		argv = split(argv[1], ' ');
-	while (!argv[i])
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 	{
-		while (argv[i][j])
-		{
-			if (!(argv[i][j] >= 48 && argv[i][j] <= 57))
-				printf("Error\n");
-			j++;
-		}
-		i++;
+		return (1);
 	}
+	else
+		return (0);
 }
+//
+//int main (void)
+//{
+//	int c;
+//
+//	c = ft_isalpha(121);
+//	printf("answer is: %d", c);
+//	return (0);
+//}

@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/01 14:49:52 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/03 03:41:33 by silndoj          ###   ########.fr       */
+/*   Created: 2024/03/12 17:14:51 by silndoj           #+#    #+#             */
+/*   Updated: 2024/03/18 00:13:47 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+//#include <stdio.h>
+#include "libft.h"
 
-int main (int argc, char **argv)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
-	int	j;
+	unsigned char	*s1;
+	size_t			i;
 
-	i = 1;
-	j = 0;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
-	else if (argc == 2)
-		argv = split(argv[1], ' ');
-	while (!argv[i])
+	i = 0;
+	s1 = (unsigned char *) s;
+	while (i < n)
 	{
-		while (argv[i][j])
-		{
-			if (!(argv[i][j] >= 48 && argv[i][j] <= 57))
-				printf("Error\n");
-			j++;
-		}
+		if (s1[i] == (unsigned char) c)
+			return ((void *)(s + i));
 		i++;
 	}
+	return (0);
 }
+//
+//int main()
+//{
+//	char s1[10] = "cecilia";
+//	char *result;
+//
+//	result = ft_memchr(s1, 'i', 6);
+//	printf("result :  %s\n", result);
+//}

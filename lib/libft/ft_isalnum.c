@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/01 14:49:52 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/03 03:41:33 by silndoj          ###   ########.fr       */
+/*   Created: 2024/03/06 18:08:07 by silndoj           #+#    #+#             */
+/*   Updated: 2024/03/11 13:27:05 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+//#include <unistd.h>
+//#include <stdio.h>
+//
+#include "libft.h"
 
-int main (int argc, char **argv)
+int	ft_isalnum(int c)
 {
-	int	i;
-	int	j;
-
-	i = 1;
-	j = 0;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122)
+		|| (c >= 48 && c <= 57))
 		return (1);
-	else if (argc == 2)
-		argv = split(argv[1], ' ');
-	while (!argv[i])
-	{
-		while (argv[i][j])
-		{
-			if (!(argv[i][j] >= 48 && argv[i][j] <= 57))
-				printf("Error\n");
-			j++;
-		}
-		i++;
-	}
+	else
+		return (0);
 }
+//
+//int main (void)
+//{
+//	int	c;
+//
+//	c = ft_isalnum(58);
+//	printf("answer is : %d\n", c);
+//	return (0);
+//}

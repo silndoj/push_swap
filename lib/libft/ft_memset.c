@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/01 14:49:52 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/03 03:41:33 by silndoj          ###   ########.fr       */
+/*   Created: 2024/03/07 14:02:45 by silndoj           #+#    #+#             */
+/*   Updated: 2024/03/12 14:14:17 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+//#include <stdio.h>
+#include "libft.h"
 
-int main (int argc, char **argv)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int	i;
-	int	j;
+	size_t	i;
 
-	i = 1;
-	j = 0;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
-	else if (argc == 2)
-		argv = split(argv[1], ' ');
-	while (!argv[i])
+	i = 0;
+	while (len > 0)
 	{
-		while (argv[i][j])
-		{
-			if (!(argv[i][j] >= 48 && argv[i][j] <= 57))
-				printf("Error\n");
-			j++;
-		}
+		*((unsigned char *)(b + i)) = (unsigned char) c;
 		i++;
+		len--;
 	}
+	return (b);
 }
+//
+//int main(void)
+//{
+//	char str[] = "silvi ndoj";
+//	printf("here is : %s\n", str);
+//	ft_memset(str + 3, '0', 5);
+//	printf("answer is : %s\n",str);
+//}
