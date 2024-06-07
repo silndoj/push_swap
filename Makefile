@@ -11,36 +11,31 @@ FT_PRINTF_MAKE	=	./lib/ft_printf/Makefile
 
 #SRC
 PUSH_SWAP_MAIN	=	src/push_swap.c
-#PUSH_SWAP_SRC	=	src/
+PUSH_SWAP_SRC	=	src/ft_alpha_error.c
 
-INCLUDE = -I lib/libft -I lib/ft_printf
+INCLUDE = -L ./lib/libft -lft -L ./lib/ft_printf -lftprintf
 
 OBJ_MAIN = $(PUSH_SWAP_MAIN:.c=.o)
-#OBJ_SRC = $(PUSH_SWAP_SRC:.c=.o)
+OBJ_SRC = $(PUSH_SWAP_SRC:.c=.o)
 
 #RULES	
 all: $(NAME)
 
-.c.o:
-			gcc $(CFLAGS) $(INCLUDE) -c $< -o $@
-
-
-$(NAME): $(OBJ_MAIN)
+$(NAME): $(OBJ_MAIN) $(OBJ_SRC)
 		@make -C $(LIBFT_LIB)
 		@make -C $(FT_PRINTF_LIB)
-		@gcc $(CFLAGS) $(OBJ_MAIN) -o $(NAME) $(INCLUDE)
-
+		@gcc $(CFLAGS) -o $(NAME) $(OBJ_MAIN) $(OBJ_SRC) -g $(INCLUDE) 
 
 lib_clean:
-					make -f $(LIBFT_MAKE) clean
-					make -f $(FT_PRINTF_MAKE) clean
+					make -C $(LIBFT_LIB) clean
+					make -C $(FT_PRINTF_LIB) clean
 
 lib_fclean:
-					make -f $(LIBFT_MAKE) fclean
-					make -f $(FT_PRINTF_MAKE) fclean
+					make -C $(LIBFT_LIB) fclean
+					make -C $(FT_PRINTF_LIB) fclean
 
 clean:				lib_clean
-						rm -rf $(OBJ_MAIN)
+						rm -rf $(OBJ_MAIN) $(OBJ_SRC)
 
 fclean:				clean lib_fclean
 						rm -rf $(NAME)
