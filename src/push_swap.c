@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 14:49:52 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/07 21:14:12 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/08 16:15:10 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char *argv[])
 		while (a < argc)
 		{
 			temp = ft_split(argv[a], ' ');
-			if(!ft_alpha_error(temp))
+			if (!ft_error(temp))
 				a++;
 			else
 				return (1);
