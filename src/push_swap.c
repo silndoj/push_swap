@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 14:49:52 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/09 00:51:05 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/09 21:15:23 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	main(int argc, char *argv[])
 {
-	char	**temp;
-	int		a;
+	static char	**argv2;
+	char		**temp;
+	int			a;
 
 	a = 1;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
@@ -26,23 +27,21 @@ int	main(int argc, char *argv[])
 		{
 			temp = ft_split(argv[a], ' ');
 			if (!ft_error(temp))
+			{
+				arg_taker(temp, argv2);
 				a++;
+			}
 			else
 				return (1);
 		}
 	}
+	int i;
+	i = 0;
+	ft_printf("\n\n----------------------------------\n\n");
+	while (argv2[i])
+	{
+		ft_printf("%s\n", argv2[i]);
+		i++;
+	}
 	return (0);
 }
-//j = 0;
-//			while (temp[i])
-//			{
-//				if (j != i)
-//				{
-//					if (!ft_double(str[j], str[i]))
-//					{
-//						ft_printf("Error\n");
-//						return (1);
-//					}
-//				}
-//				j++;
-//			}
