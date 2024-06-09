@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 14:49:52 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/08 16:15:10 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/09 00:51:05 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,16 @@ int	main(int argc, char *argv[])
 	}
 	return (0);
 }
+//j = 0;
+//			while (temp[i])
+//			{
+//				if (j != i)
+//				{
+//					if (!ft_double(str[j], str[i]))
+//					{
+//						ft_printf("Error\n");
+//						return (1);
+//					}
+//				}
+//				j++;
+//			}
