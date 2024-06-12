@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:49:13 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/09 21:15:19 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:49:32 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,22 @@ int	ft_sign(char *str)
 	return (0);
 }
 
+int	double_trouble(char *str, char *reject)
+{
+	int i;
+	int	flag;
+
+	i = 0;
+	flag = 0;
+	while(reject[i] && flag == 0)
+	{
+		if (str[i] != reject[i])
+			return (1);
+		i++;
+	}
+	return (flag);
+}
+
 int	ft_error(char **str)
 {
 	int			i;
@@ -59,20 +75,4 @@ int	ft_error(char **str)
 		i++;
 	}
 	return (0);
-}
-
-void	arg_taker(char **source)
-{
-	int		i;
-	int		len;
-	char	*temp;
-
-	i = 0;
-	while(source[i])
-	{
-		len = ft_strlen(source[i]);
-		temp = ft_calloc(len, sizeof(char));
-		temp = ft_strdup(source[i]);
-		i++;
-	}
 }

@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/09 20:38:40 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:20:48 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_core
 int		ft_issdigit(char str);
 int		ft_sign(char *str);
 int		ft_error(char **str);
-void	arg_taker(char **source, char **argv);
+int		double_trouble(char *str, char *reject);
 
 
 #endif
