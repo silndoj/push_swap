@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:49:13 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/12 18:49:32 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/18 15:49:32 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,30 +44,67 @@ int	ft_sign(char *str)
 	return (0);
 }
 
-int	double_trouble(char *str, char *reject)
+int	ft_double(char *needle, char **str, int pos)
 {
-	int i;
-	int	flag;
-
-	i = 0;
-	flag = 0;
-	while(reject[i] && flag == 0)
-	{
-		if (str[i] != reject[i])
-			return (1);
-		i++;
-	}
-	return (flag);
-}
-
-int	ft_error(char **str)
-{
-	int			i;
+	int	i;
+	int	result;
 
 	i = 0;
 	while (str[i])
 	{
+		if (i == pos && str[i + 1])
+			i++;
+		else if (str[i + 1])
+		{
+			if (ft_strlen(str[i]) == ft_strlen(needle))
+			{
+				result = ft_strncmp(needle, str[i], ft_strlen(needle));
+				if (result == 0)
+					return (1);
+			}
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	ft_error_single(char *str)
+{
+	char	**temp;
+	int		i;
+
+	i = 0;
+	temp = ft_split(str, ' ');
+	while (temp[i])
+	{
+		if (ft_sign(temp[i]))
+		{
+			ft_printf("Error\n");
+			return (1);
+		}
+		if (ft_double(temp[i], temp, i))
+		{
+			ft_printf("Error\n");
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	ft_error(char **str)
+{
+	int	i;
+
+	i = 1;
+	while (str[i])
+	{
 		if (ft_sign(str[i]))
+		{
+			ft_printf("Error\n");
+			return (1);
+		}
+		if (ft_double(str[i], str, i))
 		{
 			ft_printf("Error\n");
 			return (1);

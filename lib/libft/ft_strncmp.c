@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 20:52:25 by silndoj           #+#    #+#             */
-/*   Updated: 2024/03/12 17:07:31 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/18 15:16:19 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 //
 //int main()
 //{
-//	char s1[10] = "silvi";
-//	char s2[10] = "silci";
+//	char s1[10] = "998";
+//	char s2[10] = "998";
 //	
-//	char  result = ft_strncmp(s1, s2, 4);
+//	char  result = ft_strncmp(s1, s2, 3);
 //	printf("result : %d\n", result);
 //}
 //
