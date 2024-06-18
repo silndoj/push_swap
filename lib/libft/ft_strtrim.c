@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 10:59:47 by silndoj           #+#    #+#             */
-/*   Updated: 2024/03/19 18:55:24 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/18 23:33:15 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ char	*ft_strtrim(const char *s1, const char *set)
 //
 //int main ()
 //{
-//	char	s1[100] = "vvvvvvvbbbbbbbsilvibbbbvvvvvv";
+//	char	s1[100] = "+-silvi";
 //	char	*res;
 //
-//	res = ft_strtrim(s1, "vb");
+//	res = ft_strtrim(s1, "+-");
 //	printf("result :%s\n", res);
 //}

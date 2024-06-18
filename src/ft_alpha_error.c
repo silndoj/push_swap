@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:49:13 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/18 15:49:32 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/18 23:34:21 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,16 @@ int	ft_double(char *needle, char **str, int pos)
 	int	result;
 
 	i = 0;
+	if (needle[0] == '+')
+		needle = ft_strtrim(needle, "+");
 	while (str[i])
 	{
 		if (i == pos && str[i + 1])
 			i++;
 		else if (str[i + 1])
 		{
+			if (str[i][0] == '+')
+				str[i] = ft_strtrim(str[i], "+");
 			if (ft_strlen(str[i]) == ft_strlen(needle))
 			{
 				result = ft_strncmp(needle, str[i], ft_strlen(needle));
