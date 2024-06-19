@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 17:22:50 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/19 18:10:05 by silndoj          ###   ########.fr       */
+/*   Created: 2024/06/19 18:12:30 by silndoj           #+#    #+#             */
+/*   Updated: 2024/06/19 18:26:11 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <string.h>
-#include "libft.h"
+#include "../inc/push_swap.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi2(const char *str)
 {
-	size_t	i;
+	int		i;
 	int		n;
-	int		result;
+	long	result;
 
 	n = 1;
 	i = 0;

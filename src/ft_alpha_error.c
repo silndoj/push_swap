@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:49:13 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/18 23:34:21 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/19 20:13:46 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int	ft_error_single(char *str)
 {
 	char	**temp;
 	int		i;
+	long	nr;
 
 	i = 0;
 	temp = ft_split(str, ' ');
@@ -91,6 +92,12 @@ int	ft_error_single(char *str)
 			ft_printf("Error\n");
 			return (1);
 		}
+		nr = ft_atoi2(temp[i]);
+		if (nr > INT_MAX || nr < INT_MIN)
+		{
+			ft_printf("Error\n");
+			return (1);
+		}
 		i++;
 	}
 	return (0);
@@ -98,7 +105,8 @@ int	ft_error_single(char *str)
 
 int	ft_error(char **str)
 {
-	int	i;
+	int		i;
+	long	nr;
 
 	i = 1;
 	while (str[i])
@@ -109,6 +117,12 @@ int	ft_error(char **str)
 			return (1);
 		}
 		if (ft_double(str[i], str, i))
+		{
+			ft_printf("Error\n");
+			return (1);
+		}
+		nr = ft_atoi2(str[i]);
+		if (nr > INT_MAX || nr < INT_MIN)
 		{
 			ft_printf("Error\n");
 			return (1);
