@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 18:46:42 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/28 19:00:15 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/28 19:09:09 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	sstack_trick(char *argv)
 		i++;
 	}
 }
+
 void	stack_trick(char **argv)
 {
 	int	*stack_a;
