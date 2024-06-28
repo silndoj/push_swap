@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/28 18:58:55 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/28 21:12:44 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,35 @@
 # include "../lib/ft_printf/ft_printf.h"
 # include <limits.h>
 
-//typedef struct s_core
-//{
-//	int				data;
-//	struct s_core	*next;
-//}				t_core;
-
+//Error_Functions
 int		ft_issdigit(char str);
 int		ft_sign(char *str);
 int		ft_error(char **str);
 int		ft_error_single(char *str);
 int		ft_double(char *needle, char **str, int i);
 long	ft_atoi2(const char *str);
-int		*stack_inv(char **argv);
-int		*sstack_inv(char *argv);
-void	stack_trick(char **argv);
-void	sstack_trick(char *argv);
+
+//Stack_Creator_Functions
+int		*stack_inv(char **sstring_int);
+int		*sstack_inv(char *string_int);
+int		stack_trick(char **argv, int len_a);
+int		sstack_trick(char *argv);
+
+//Stack_A_Options_Functions
+int		trick_sa(int *stack_a, int len_a);
+int		trick_pa(int *stack_a, int *stack_b, int len_a, int len_b);
+int		trick_ra(int *stack_a, int len_a);
+int		trick_rra(int *stack_a, int len_a);
+
+//Stack_B_Options_Functions
+int		trick_sb(int *stack_a, int len_a);
+int		trick_pb(int *stack_b, int *stack_a, int len_b, int len_a);
+int		trick_rb(int *stack_b, int len_b);
+int		trick_rrb(int *stack_b, int len_b);
+
+//Both_Stacks_Options_Functions
+int		trick_ss(int *stack_a, int *stack_b, int len_a, int len_b);
+int		trick_rr(int *stack_a, int *stack_b, int len_a, int len_b);
+int		trick_rrr(int *stack_a, int *stack_b, int len_a, int len_b);
 
 #endif

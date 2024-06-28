@@ -6,13 +6,13 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 18:46:42 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/28 19:09:09 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/28 21:20:36 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	*sstack_inv(char *argv)
+int	*sstack_inv(char *string_int)
 {
 	int		i;
 	int		j;
@@ -21,7 +21,7 @@ int	*sstack_inv(char *argv)
 
 	j = 0;
 	i = 0;
-	temp = ft_split(argv, ' ');
+	temp = ft_split(string_int, ' ');
 	while (temp[i])
 		i++;
 	sstack = malloc(sizeof(int) * i);
@@ -35,7 +35,7 @@ int	*sstack_inv(char *argv)
 	return (sstack);
 }
 
-int	*stack_inv(char **argv)
+int	*stack_inv(char **sstring_int)
 {
 	int	i;
 	int	j;
@@ -43,43 +43,55 @@ int	*stack_inv(char **argv)
 
 	i = 1;
 	j = 0;
-	while (argv[i])
+	while (sstring_int[i])
 		i++;
 	stack = malloc(sizeof(int) * i);
 	i = 1;
-	while (argv[i])
+	while (sstring_int[i])
 	{
-		stack[j] = ft_atoi(argv[i]);
+		stack[j] = ft_atoi(sstring_int[i]);
 		i++;
 		j++;
 	}
 	return (stack);
 }
 
-void	sstack_trick(char *argv)
+int	sstack_trick(char *argv)
 {
-	int	*stack_a;
-	int	i;
+	int		*stack_a;
+	int		i;
+	int		len_a;
+	char	**temp;
 
 	i = 0;
+	len_a = 0;
+	temp = ft_split(argv, ' ');
+	while (temp[len_a])
+		len_a++;
 	stack_a = sstack_inv(argv);
+	if (trick_sa(stack_a, len_a))
+		return (1);
 	while (i < 5)
 	{
 		ft_printf("stack[%d] = %d\n", i, stack_a[i]);
 		i++;
 	}
+
+	return (0);
 }
 
-void	stack_trick(char **argv)
+int	stack_trick(char **argv, int len_a)
 {
 	int	*stack_a;
 	int	i;
 
 	i = 0;
 	stack_a = stack_inv(argv);
-	while (i < 5)
+	while (i <= len_a)
 	{
 		ft_printf("stack[%d] = %d\n", i, stack_a[i]);
 		i++;
 	}
+
+	return (0);
 }
