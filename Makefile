@@ -12,7 +12,8 @@ FT_PRINTF_MAKE	=	./lib/ft_printf/Makefile
 #SRC
 PUSH_SWAP_MAIN	=	src/push_swap.c
 PUSH_SWAP_SRC	=	src/ft_alpha_error.c \
-					src/number_creator.c
+					src/ft_atoi2.c \
+					src/manipulation.c
 
 INCLUDE = -L ./lib/libft -lft -L ./lib/ft_printf -lftprintf
 
