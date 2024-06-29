@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 18:46:42 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/28 21:20:36 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/29 07:09:33 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,21 +62,22 @@ int	sstack_trick(char *argv)
 	int		i;
 	int		len_a;
 	char	**temp;
+//	int		b[1];
 
 	i = 0;
 	len_a = 0;
+//	b[0] = 8;
 	temp = ft_split(argv, ' ');
 	while (temp[len_a])
 		len_a++;
 	stack_a = sstack_inv(argv);
-	if (trick_sa(stack_a, len_a))
+	if (trick_rra(stack_a, len_a))
 		return (1);
-	while (i < 5)
+	while (i < 3)
 	{
 		ft_printf("stack[%d] = %d\n", i, stack_a[i]);
 		i++;
 	}
-
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/28 21:12:44 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/29 06:29:15 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		sstack_trick(char *argv);
 
 //Stack_A_Options_Functions
 int		trick_sa(int *stack_a, int len_a);
-int		trick_pa(int *stack_a, int *stack_b, int len_a, int len_b);
+int		trick_pa(int *stack_a, int *stack_b, int len_a);
 int		trick_ra(int *stack_a, int len_a);
 int		trick_rra(int *stack_a, int len_a);
 
