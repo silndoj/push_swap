@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 18:46:42 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/01 04:18:29 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/29 07:09:33 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	*sstack_inv(char *string_int)
 	temp = ft_split(string_int, ' ');
 	while (temp[i])
 		i++;
-	i--;
 	sstack = malloc(sizeof(int) * i);
 	i = 0;
 	while (temp[i])
@@ -46,7 +45,6 @@ int	*stack_inv(char **sstring_int)
 	j = 0;
 	while (sstring_int[i])
 		i++;
-	i--;
 	stack = malloc(sizeof(int) * i);
 	i = 1;
 	while (sstring_int[i])
@@ -60,30 +58,25 @@ int	*stack_inv(char **sstring_int)
 
 int	sstack_trick(char *argv)
 {
-	int		*sstack_a;
-	int		*sstack_b;
+	int		*stack_a;
 	int		i;
 	int		len_a;
-//	int		len_b;
 	char	**temp;
+//	int		b[1];
 
 	i = 0;
 	len_a = 0;
+//	b[0] = 8;
 	temp = ft_split(argv, ' ');
 	while (temp[len_a])
 		len_a++;
-	sstack_a = sstack_inv(argv);
-	sstack_b = sstack_inv(argv);
-	//trick_pa(sstack_a, sstack_b, len_a);
-	trick_sa(sstack_a, len_a);
-//	trick_ra(sstack_a, len_a);
-//	trick_pb(sstack_b, sstack_a,)
-	trick_rra(sstack_a, len_a);
-		while (i <= len_a)
-		{
-			ft_printf("stack[%d] = %d\n", i, sstack_a[i]);
-			i++;
-		}
+	stack_a = sstack_inv(argv);
+	if (trick_rra(stack_a, len_a))
+		return (1);
+	while (i < 3)
+	{
+		ft_printf("stack[%d] = %d\n", i, stack_a[i]);
+		i++;
 	}
 	return (0);
 }

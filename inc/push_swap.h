@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/01 04:08:04 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/29 06:29:15 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ long	ft_atoi2(const char *str);
 //Stack_Creator_Functions
 int		*stack_inv(char **sstring_int);
 int		*sstack_inv(char *string_int);
+int		stack_trick(char **argv, int len_a);
+int		sstack_trick(char *argv);
 
 //Stack_A_Options_Functions
 int		trick_sa(int *stack_a, int len_a);
@@ -36,7 +38,7 @@ int		trick_ra(int *stack_a, int len_a);
 int		trick_rra(int *stack_a, int len_a);
 
 //Stack_B_Options_Functions
-int		trick_sb(int *stack_b, int len_b);
+int		trick_sb(int *stack_a, int len_a);
 int		trick_pb(int *stack_b, int *stack_a, int len_b, int len_a);
 int		trick_rb(int *stack_b, int len_b);
 int		trick_rrb(int *stack_b, int len_b);
@@ -45,9 +47,5 @@ int		trick_rrb(int *stack_b, int len_b);
 int		trick_ss(int *stack_a, int *stack_b, int len_a, int len_b);
 int		trick_rr(int *stack_a, int *stack_b, int len_a, int len_b);
 int		trick_rrr(int *stack_a, int *stack_b, int len_a, int len_b);
-
-//Algorithms_Functions
-int		stack_trick(char **argv, int len_a);
-int		sstack_trick(char *argv);
 
 #endif

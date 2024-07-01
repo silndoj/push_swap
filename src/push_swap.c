@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 14:49:52 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/01 03:41:18 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/06/28 21:16:39 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 	{
 		if (ft_error(argv))
 			return (1);
-		if (stack_trick(argv, argc - 2))
+		if (stack_trick(argv, argc - 1))
 			return (1);
 	}
 	return (0);
