@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:31:45 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/01 03:36:31 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/02 20:11:27 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,15 @@ int	trick_sa(int *stack_a, int len_a)
 	return (0);
 }
 
-int	trick_pa(int *stack_a, int *stack_b, int len_a)
+void	trick_pa(int *stack_a, int *stack_b, int *len_a, int *len_b)
 {
-	int	i;
-	int	t1;
-	int	t2;
-
-	i = 0;
-	if (!stack_b[0])
-		return (1);
-	while (i <= len_a)
+	if (*len_b >= 0)
 	{
-		if (i == 0)
-		{
-			t1 = stack_a[i];
-			stack_a[i] = stack_b[0];
-		}
-		else if (i != 0)
-		{
-			t2 = stack_a[i];
-			stack_a[i] = t1;
-			t1 = t2;
-		}
-		i++;
+		shift_down(stack_a, len_a);
+		stack_a[0] = stack_b[0];
+		shift_up(stack_b, len_b);
+		ft_printf("pa\n");
 	}
-	ft_printf("pa\n");
-	return (0);
 }
 
 int	trick_ra(int *stack_a, int len_a)
