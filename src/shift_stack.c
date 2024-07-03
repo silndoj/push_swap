@@ -6,15 +6,15 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 19:05:45 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/02 20:12:49 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/03 03:26:38 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void    shift_up(int *stack, int *len)
+void	shift_up(int *stack, int *len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i <= *len)
@@ -25,9 +25,9 @@ void    shift_up(int *stack, int *len)
 	*len -= 1;
 }
 
-void    shift_down(int *stack, int *len)
+void	shift_down(int *stack, int *len)
 {
-	int i;
+	int	i;
 	int	t1;
 	int	t2;
 

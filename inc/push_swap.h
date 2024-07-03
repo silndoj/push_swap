@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/02 20:13:41 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/03 04:26:44 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ int		*sstack_inv(char *string_int);
 //Stack_A_Options_Functions
 int		trick_sa(int *stack_a, int len_a);
 void	trick_pa(int *stack_a, int *stack_b, int *len_a, int *len_b);
-int		trick_ra(int *stack_a, int len_a);
-int		trick_rra(int *stack_a, int len_a);
+void	trick_ra(int *stack_a, int len_a);
+void	trick_rra(int *stack_a, int len_a);
 
 //Stack_B_Options_Functions
 int		trick_sb(int *stack_b, int len_b);
 void	trick_pb(int *stack_b, int *stack_a, int *len_b, int *len_a);
-int		trick_rb(int *stack_b, int len_b);
-int		trick_rrb(int *stack_b, int len_b);
+void	trick_rb(int *stack_b, int len_b);
+void	trick_rrb(int *stack_b, int len_b);
 
 //Both_Stacks_Options_Functions
 int		trick_ss(int *stack_a, int *stack_b, int len_a, int len_b);
-int		trick_rr(int *stack_a, int *stack_b, int len_a, int len_b);
-int		trick_rrr(int *stack_a, int *stack_b, int len_a, int len_b);
+void	trick_rr(int *stack_a, int *stack_b, int len_a, int len_b);
+void	trick_rrr(int *stack_a, int *stack_b, int len_a, int len_b);
 
 //Shifts_Options
 void	shift_up(int *stack, int *len);

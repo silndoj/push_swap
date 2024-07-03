@@ -6,13 +6,13 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 19:36:31 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/02 19:57:57 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/03 03:25:52 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int     *sstack_inv(char *string_int)
+int	*sstack_inv(char *string_int)
 {
 	int		i;
 	int		j;
@@ -57,4 +57,3 @@ int	*stack_inv(char **sstring_int)
 	}
 	return (stack);
 }
-
