@@ -6,13 +6,13 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 19:36:31 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/03 20:11:51 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/04 15:58:46 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	*sstack_inv(char *string_int)
+int	*sstack_inv(char *string_int, int *len_a)
 {
 	int		i;
 	int		j;
@@ -25,6 +25,7 @@ int	*sstack_inv(char *string_int)
 	while (temp[i])
 		i++;
 	sstack = malloc(sizeof(int) * i);
+	*len_a = i - 1;
 	i = 0;
 	while (temp[i])
 	{

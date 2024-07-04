@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/03 20:35:24 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/04 16:49:54 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ long	ft_atoi2(const char *str);
 
 //Stack_Creator_Functions
 int		*stack_inv(char **sstring_int);
-int		*sstack_inv(char *string_int);
-int		stack_trick(char **argv, int len_a);
-int		sstack_trick(char *argv);
+int		*sstack_inv(char *string_int, int *len_a);
 
 //Stack_A_Options_Functions
 int		trick_sa(int *stack_a, int len_a);
@@ -51,5 +49,9 @@ void	trick_rrr(int *stack_a, int *stack_b, int len_a, int len_b);
 //Shifts_Options
 void	shift_up(int *stack, int *len);
 void	shift_down(int *stack, int *len);
+void	swap_specific(int *sstack, int pos_1,int s_replace, int len);
+//Algorithms_and_more
+int		stack_trick(char **argv, int len_a);
+int		sstack_trick(char *argv);
 
 #endif
