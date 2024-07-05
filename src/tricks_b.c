@@ -6,23 +6,23 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 03:41:00 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/04 16:06:37 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/05 04:05:29 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	trick_sb(int *stack_b, int len_b)
+void	trick_sb(int *stack_b, int len_b)
 {
 	int	temp;
 
-	if (len_b < 2)
-		return (1);
-	temp = stack_b[0];
-	stack_b[0] = stack_b[1];
-	stack_b[1] = temp;
-	ft_printf("sb\n");
-	return (0);
+	if (len_b >= 1)
+	{
+		temp = stack_b[0];
+		stack_b[0] = stack_b[1];
+		stack_b[1] = temp;
+		ft_printf("sb\n");
+	}
 }
 
 void	trick_pb(int *stack_b, int *stack_a, int *len_b, int *len_a)

@@ -6,64 +6,12 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 18:46:42 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/04 17:13:19 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/06 01:01:42 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-//int	sstack_dv(int *sstack, int smax, int smin)
-//{
-//	int	pivot;
-//	int	i;
-//	int	j;
-//	int	k;
-//	int	flag;
-//
-//	flag = 1;
-//	pivot = sstack[smax];
-//	i = (smin - 1);
-//	j = smin;
-//	k = 0;
-//	while (j <= smax - 1)
-//	{
-//		if (sstack[j] < pivot)
-//		{
-//			i++;
-//			while (flag == 1)
-//			{
-//				while (k <= smax)
-//				{
-//					if (sstack[k] == ex_pos)
-//						pos = i;
-//					i++;
-//				}
-//				if (pos < len_a / 2)
-//				{
-//					if (sstack_a[0] != 11)
-//						trick_ra(sstack_a, len_a);
-//				}
-//				if (pos > len_a / 2)
-//				{
-//					if (sstack_a[0] != 11)
-//						trick_rra(sstack_a, len_a);
-//				}
-//				if (sstack_a[0] == 11)
-//					flag = 0;
-//			}
-//		}
-//	}
-//}
-//
-//int	quick_sort(int *sstack_a, int smax, int smin)
-//{
-//	if (s_min < smax)
-//	{
-//		int	pi;
-//
-//		pi = sstack_dv(sstack_a, smin, smax);
-//	}
-//}
 
 int	sstack_trick(char *argv)
 {
@@ -78,14 +26,18 @@ int	sstack_trick(char *argv)
 	len_b = 0;
 	sstack_a = sstack_inv(argv, &len_a);
 	sstack_b = malloc(len_a);
-	swap_specific(sstack_a, 4, 11, len_a);
-//	ft_printf("len_b = %d\n", len_b);
-//	while (i < len_b)
-//	{
-//		ft_printf("stack[%d] = %d\n", i, sstack_b[i]);
-//		i++;
-//	}
-//	ft_printf("\n\n");
+//	trick_ra(sstack_a, len_a);
+//	trick_pb(sstack_b, sstack_a, &len_b, &len_a);
+//	sort_3(sstack_a, len_a);
+	sort_5(sstack_a, sstack_b, &len_a, &len_b);
+	ft_printf("len_b = %d\n", len_b);
+	while (i < len_b)
+	{
+		ft_printf("stack[%d] = %d\n", i, sstack_b[i]);
+		i++;
+	}
+	i = 0;
+	ft_printf("\n\n");
 	ft_printf("len_a = %d\n", len_a);
 	while (i <= len_a)
 	{
