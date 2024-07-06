@@ -19,7 +19,8 @@ PUSH_SWAP_SRC	=	src/ft_alpha_error.c \
 					src/tricks_ab.c \
 					src/shift_stack.c \
 					src/stack_inv.c \
-					src/swap_specific.c
+					src/swap_specific.c \
+					src/algo.c
 
 INCLUDE = -L ./lib/libft -lft -L ./lib/ft_printf -lftprintf
 

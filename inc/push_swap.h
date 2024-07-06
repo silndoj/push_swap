@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/05 01:45:02 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/06 17:19:10 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,17 @@ void	trick_rrr(int *stack_a, int *stack_b, int len_a, int len_b);
 //Shifts_Options
 void	shift_up(int *stack, int *len);
 void	shift_down(int *stack, int *len);
-void	sort_3(int *stack, int len_a);
-void	sort_5(int *stack_a, int *stack_b, int *len_a, int *len_b);
+
 //Algorithms_and_more
-int		stack_trick(char **argv, int len_a);
-int		sstack_trick(char *argv);
+int		*stack_trick(char **argv, int len_a);
+int		*sstack_trick(char *argv);
+void	sort_2(int *stack, int len_a);
+void	sort_3(int *stack, int len_a);
+void	sort_4(int *stack_a, int *stack_b, int *len_a, int *len_b);
+void	sort_5(int *stack_a, int *stack_b, int *len_a, int *len_b);
+void	road_top(int *stack_a, int pos, int len_a);
+void	algorithm_1(int *stack_a, int *stack_b, int *len_a, int *len_b);
+void	algorithm_2(int *stack_a, int *stack_b, int *len_a, int *len_b);
+void	push_all_a(int *stack_a, int *stack_b, int *len_a, int *len_b);
 
 #endif
