@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 18:46:42 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/06 17:20:43 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/07 07:20:46 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ int	*sstack_trick(char *argv)
 	len_a = 0;
 	len_b = -1;
 	sstack_a = sstack_inv(argv, &len_a);
-	sstack_b = malloc(len_a);
-	algorithm_2(sstack_a, sstack_b, &len_a, &len_b);
-	return (sstack_a);
+	sstack_b = algo_secret(sstack_a, len_a);
+//	algorithm_2(sstack_a, sstack_b, &len_a, &len_b);
+	//
+	return (sstack_b);
 }
 
 int	*stack_trick(char **argv, int len_a)
