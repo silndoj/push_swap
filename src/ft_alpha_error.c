@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:49:13 by silndoj           #+#    #+#             */
-/*   Updated: 2024/06/28 18:46:23 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/08 00:21:47 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	ft_error_single(char *str)
 
 int	ft_error(char **str)
 {
-	int		i;
+	int	i;
 
 	i = 1;
 	while (str[i])

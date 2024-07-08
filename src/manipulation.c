@@ -6,41 +6,41 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 18:46:42 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/07 07:20:46 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/08 05:09:02 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	*sstack_trick(char *argv)
+void	*sstack_trick(char *argv)
 {
 	int		*sstack_a;
 	int		*sstack_b;
-	int		i;
 	int		len_a;
 	int		len_b;
+	int		i;
 
 	i = 0;
 	len_a = 0;
 	len_b = -1;
 	sstack_a = sstack_inv(argv, &len_a);
-	sstack_b = algo_secret(sstack_a, len_a);
-//	algorithm_2(sstack_a, sstack_b, &len_a, &len_b);
-	//
-	return (sstack_b);
+	sstack_b = malloc(sizeof(int) * len_a);
+	algorithm_100(sstack_a, sstack_b, &len_a, &len_b);
+	while (i <= len_a)
+	{
+		ft_printf("stack_a[%d] = %d\n",i ,sstack_a[i]);
+		i++;
+	}
 }
 
-int	*stack_trick(char **argv, int len_a)
+void	*stack_trick(char **argv, int len_a)
 {
 	int	*stack_a;
 	int	*stack_b;
-	int	i;
 	int	len_b;
 
-	i = 0;
 	len_b = -1;
 	stack_a = stack_inv(argv);
-	stack_b = malloc(len_a);
-	algorithm_2(stack_a, stack_b, &len_a, &len_b);
-	return (stack_a);
+	stack_b = malloc(sizeof(int) * len_a);
+	algorithm_100(stack_a, stack_b, &len_a, &len_b);
 }
