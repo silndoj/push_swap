@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:52:06 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/08 19:33:32 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/08 21:16:01 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,18 @@ void	alg_basic_b(int *stack_b, int *stack_a, int *len_b, int *len_a)
 
 void	algorithm_100(int *stack_a, int *stack_b, int *len_a, int *len_b)
 {
-	push_chunk(stack_a, stack_b, len_a, len_b);
-	alg_basic_a(stack_a, stack_b, len_a, len_b);
-	alg_basic_b(stack_b, stack_a, len_b, len_a);
+	if (*len_a == 1)
+		sort_2(stack_a, *len_a);
+	if (*len_a == 2)
+		sort_3(stack_a, *len_a);
+	if (*len_a == 3)
+		sort_4(stack_a, stack_b, len_a, len_b);
+	if (*len_a == 4)
+		sort_5(stack_a, stack_b, len_a, len_b);
+	else if (*len_a > 4)
+	{
+		push_chunk(stack_a, stack_b, len_a, len_b);
+		alg_basic_a(stack_a, stack_b, len_a, len_b);
+		alg_basic_b(stack_b, stack_a, len_b, len_a);
+	}
 }

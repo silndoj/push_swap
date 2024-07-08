@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 19:36:31 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/04 15:58:46 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/08 21:41:30 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	*stack_inv(char **sstring_int)
 	j = 0;
 	while (sstring_int[i])
 		i++;
+	i--;
 	stack = malloc(sizeof(int) * i);
 	i = 1;
 	while (sstring_int[i])
