@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 06:51:25 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/08 04:23:20 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/08 19:37:09 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	get_key(int *stack, int len, int chunk_nr)
 	int	key;
 	int	idx;
 
-	idx = (len / 4) * chunk_nr;
+	idx = (len / 7) * chunk_nr;
 	key = stack[idx + 1];
 	return (key);
 }
@@ -96,7 +96,7 @@ void	push_chunk(int *stack_a, int *stack_b, int *len_a, int *len_b)
 	i = 0;
 	j = 1;
 	len = *len_a;
-	while (j <= 3)
+	while (j <= 6)
 	{
 		i = 0;
 		while (i <= *len_a)

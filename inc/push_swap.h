@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/08 05:08:51 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/08 19:30:05 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,18 @@ void	shift_up(int *stack, int *len);
 void	shift_down(int *stack, int *len);
 
 //Core_Functions
-void	*stack_trick(char **argv, int len_a);
-void	*sstack_trick(char *argv);
+void	stack_trick(char **argv, int len_a);
+void	sstack_trick(char *argv);
 
 //Algorithms
 void	sort_2(int *stack, int len_a);
 void	sort_3(int *stack, int len_a);
 void	sort_4(int *stack_a, int *stack_b, int *len_a, int *len_b);
 void	sort_5(int *stack_a, int *stack_b, int *len_a, int *len_b);
-int		*algo_secret(int *stack_a, int len_a);
-void	alg_basic(int *stack_a, int *stack_b, int *len_a, int *len_b);
 void	algorithm_100(int *stack_a, int *stack_b, int *len_a, int *len_b);
+void	alg_basic_a(int *stack_a, int *stack_b, int *len_a, int *len_b);
+void	alg_basic_b(int *stack_b, int *stack_a, int *len_b, int *len_a);
+int		*algo_secret(int *stack_a, int len_a);
 
 //Utils
 void	road_top(int *stack_a, int pos, int len_a);
