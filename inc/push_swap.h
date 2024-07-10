@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/08 19:30:05 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/10 02:01:26 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 //Error_Functions
 int		ft_issdigit(char str);
 int		ft_sign(char *str);
-int		ft_error(char **str);
 int		ft_error_single(char *str);
 int		ft_double(char *needle, char **str, int i);
 long	ft_atoi2(const char *str);
 
 //Stack_Creator_Functions
-int		*stack_inv(char **sstring_int);
+//int		*stack_inv(char **sstring_int);
+char	*args_to_single(char **argv, int len);
 int		*sstack_inv(char *string_int, int *len_a);
 
 //Stack_A_Options_Functions
@@ -51,7 +51,6 @@ void	shift_up(int *stack, int *len);
 void	shift_down(int *stack, int *len);
 
 //Core_Functions
-void	stack_trick(char **argv, int len_a);
 void	sstack_trick(char *argv);
 
 //Algorithms
@@ -65,6 +64,7 @@ void	alg_basic_b(int *stack_b, int *stack_a, int *len_b, int *len_a);
 int		*algo_secret(int *stack_a, int len_a);
 
 //Utils
+int		check_sorted(int *stack_a, int len_a);
 void	road_top(int *stack_a, int pos, int len_a);
 int		*stack_copy(int *stack, int slen);
 int		get_key(int *stack, int len, int chunk_nr);

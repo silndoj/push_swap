@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 19:36:31 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/08 21:41:30 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/09 19:48:40 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,50 @@ int	*sstack_inv(char *string_int, int *len_a)
 		i++;
 		j++;
 	}
+	free(temp);
 	return (sstack);
 }
 
-int	*stack_inv(char **sstring_int)
+char	*args_to_single(char **argv, int len)
 {
-	int	i;
-	int	j;
-	int	*stack;
+	int		i;
+	int		j;
+	char	*str;
 
-	i = 1;
 	j = 0;
-	while (sstring_int[i])
-		i++;
-	i--;
-	stack = malloc(sizeof(int) * i);
 	i = 1;
-	while (sstring_int[i])
+	str = ft_strjoin(argv[i], " ");
+	i++;
+	while (argv[i])
 	{
-		stack[j] = ft_atoi(sstring_int[i]);
+		str = ft_strjoin(str, argv[i]);
+		str = ft_strjoin(str, " ");
 		i++;
 		j++;
 	}
-	return (stack);
+	return (str);
 }
+//int	*stack_inv(char **sstring_int)
+//{
+//	int		i;
+//	int		j;
+//	char	*temp;
+//	char	*stack;
+//
+//	i = 1;
+//	j = 0;
+//	while (sstring_int[i])
+//		i++;
+//	i--;
+//	temp = malloc(sizeof(char) * i);
+//	i = 1;
+//	while (sstring_int[i])
+//	{
+//		temp[j] = ft_atoi(sstring_int[i]);
+//		i++;
+//		j++;
+//	}
+//	temp[j] = '\0';
+//	sstack_trick(temp);
+//	return (stack);
+//}
