@@ -6,13 +6,13 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 06:51:25 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/08 19:37:09 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/11 03:36:01 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	road_top(int *stack_a, int pos, int len_a)
+void	road_top_a(int *stack_a, int pos, int len_a)
 {
 	int	i;
 	int	nr;
@@ -92,24 +92,27 @@ void	push_chunk(int *stack_a, int *stack_b, int *len_a, int *len_b)
 	int	i;
 	int	j;
 	int	len;
+	int	*restack;
 
 	i = 0;
 	j = 1;
+	restack = algo_secret(stack_a, *len_a);
 	len = *len_a;
 	while (j <= 6)
 	{
 		i = 0;
 		while (i <= *len_a)
 		{
-			if (stack_a[i] <= get_key(algo_secret(stack_a, *len_a), len, j))
+			if (stack_a[i] <= get_key(restack, len, j))
 			{
-				road_top(stack_a, i, *len_a);
+				road_top_a(stack_a, i, *len_a);
 				trick_pb(stack_b, stack_a, len_b, len_a);
 				i = 0;
 			}
-			else
-				i++;
+			i++;
 		}
 		j++;
 	}
+	free(restack);
+	restack = NULL;
 }

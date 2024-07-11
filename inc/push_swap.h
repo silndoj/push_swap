@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/10 02:01:26 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/11 03:03:08 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int		ft_double(char *needle, char **str, int i);
 long	ft_atoi2(const char *str);
 
 //Stack_Creator_Functions
-//int		*stack_inv(char **sstring_int);
 char	*args_to_single(char **argv, int len);
 int		*sstack_inv(char *string_int, int *len_a);
 
@@ -61,13 +60,14 @@ void	sort_5(int *stack_a, int *stack_b, int *len_a, int *len_b);
 void	algorithm_100(int *stack_a, int *stack_b, int *len_a, int *len_b);
 void	alg_basic_a(int *stack_a, int *stack_b, int *len_a, int *len_b);
 void	alg_basic_b(int *stack_b, int *stack_a, int *len_b, int *len_a);
+void	push_chunk(int *stack_a, int *stack_b, int *len_a, int *len_b);
 int		*algo_secret(int *stack_a, int len_a);
 
 //Utils
 int		check_sorted(int *stack_a, int len_a);
-void	road_top(int *stack_a, int pos, int len_a);
 int		*stack_copy(int *stack, int slen);
 int		get_key(int *stack, int len, int chunk_nr);
-void	push_chunk(int *stack_a, int *stack_b, int *len_a, int *len_b);
+void	road_top_a(int *stack_a, int pos, int len_a);
+void	road_top_b(int *stack_a, int pos, int len_a);
 
 #endif

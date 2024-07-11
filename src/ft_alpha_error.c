@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:49:13 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/10 00:37:19 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/11 03:13:54 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	ft_double(char *needle, char **str, int pos)
 		}
 		i++;
 	}
+	free(needle);
 	return (0);
 }
 
@@ -86,5 +87,6 @@ int	ft_error_single(char *str)
 		}
 		i++;
 	}
+	free(temp);
 	return (0);
 }

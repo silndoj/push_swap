@@ -6,60 +6,86 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:52:06 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/10 02:16:52 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/11 03:57:15 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+void	road_top_b(int *stack_b, int pos, int len_b)
+{
+	int	i;
+	int	nr;
+
+	i = 0;
+	nr = stack_b[pos];
+	if (pos <= (len_b / 2) && pos != 0)
+	{
+		while (i == 0)
+		{
+			trick_rb(stack_b, len_b);
+			if (stack_b[0] == nr)
+				i = 1;
+		}
+	}
+	else if (pos > (len_b / 2) && pos != 0)
+	{
+		while (i == 0)
+		{
+			trick_rrb(stack_b, len_b);
+			if (stack_b[0] == nr)
+				i = 1;
+		}
+	}
+}
+
 void	alg_basic_a(int *stack_a, int *stack_b, int *len_a, int *len_b)
 {
 	int	i;
-	int	temp;
-	int	pos;
+	int	j;
+	int	*restack;
 
+	j = 0;
+	restack = algo_secret(stack_a, *len_a);
 	while (*len_a >= 0)
 	{
 		i = 0;
-		temp = stack_a[0];
-		pos = 0;
 		while (i <= *len_a)
 		{
-			if (temp > stack_a[i])
+			if (stack_a[i] == restack[j])
 			{
-				temp = stack_a[i];
-				pos = i;
+				road_top_a(stack_a, i, *len_a);
+				trick_pb(stack_b, stack_a, len_b, len_a);
+				j++;
 			}
 			i++;
 		}
-		road_top(stack_a, pos, *len_a);
-		trick_pb(stack_b, stack_a, len_b, len_a);
 	}
+	free(restack);
+	restack = NULL;
 }
 
 void	alg_basic_b(int *stack_b, int *stack_a, int *len_b, int *len_a)
 {
 	int	i;
-	int	temp;
-	int	pos;
+	int	*restack;
 
+	restack = algo_secret(stack_b, *len_b);
 	while (*len_b >= 0)
 	{
 		i = 0;
-		temp = stack_b[0];
-		pos = 0;
 		while (i <= *len_b)
 		{
-			if (temp < stack_b[i])
+			if (stack_b[i] == restack[*len_b])
 			{
-				temp = stack_b[i];
-				pos = i;
+				road_top_b(stack_b, i, *len_b);
+				trick_pa(stack_a, stack_b, len_a, len_b);
 			}
 			i++;
 		}
-		road_top(stack_b, pos, *len_b);
-		trick_pa(stack_a, stack_b, len_a, len_b);
 	}
+	free(restack);
+	restack = NULL;
 }
 
 void	algorithm_100(int *stack_a, int *stack_b, int *len_a, int *len_b)
