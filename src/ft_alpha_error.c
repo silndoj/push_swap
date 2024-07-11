@@ -64,7 +64,6 @@ int	ft_double(char *needle, char **str, int pos)
 		}
 		i++;
 	}
-	free(needle);
 	return (0);
 }
 

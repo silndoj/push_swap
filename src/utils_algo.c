@@ -6,37 +6,38 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 06:51:25 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/11 03:36:01 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/11 10:22:35 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	road_top_a(int *stack_a, int pos, int len_a)
+int	chunk_sorted_a(int *stack, int mid, int len)
 {
 	int	i;
-	int	nr;
 
 	i = 0;
-	nr = stack_a[pos];
-	if (pos <= (len_a / 2) && pos != 0)
+	while (i <= len)
 	{
-		while (i == 0)
-		{
-			trick_ra(stack_a, len_a);
-			if (stack_a[0] == nr)
-				i = 1;
-		}
+		if (stack[i] < mid)
+			return (1);
+		i++;
 	}
-	else if (pos > (len_a / 2) && pos != 0)
+	return (0);
+}
+
+int	chunk_sorted_b(int *stack, int mid, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i <= len)
 	{
-		while (i == 0)
-		{
-			trick_rra(stack_a, len_a);
-			if (stack_a[0] == nr)
-				i = 1;
-		}
+		if (stack[i] > mid)
+			return (1);
+		i++;
 	}
+	return (0);
 }
 
 int	*stack_copy(int *stack, int slen)
@@ -54,25 +55,23 @@ int	*stack_copy(int *stack, int slen)
 	return (u_stack);
 }
 
-int	get_key(int *stack, int len, int chunk_nr)
+int	mid_key(int *stack, int len)
 {
 	int	key;
-	int	idx;
 
-	idx = (len / 7) * chunk_nr;
-	key = stack[idx + 1];
+	key = stack[len / 2];
 	return (key);
 }
 
-int	*algo_secret(int *stack_a, int len_a)
+int	*algo_secret(int *stack, int len)
 {
 	int	i;
 	int	temp;
 	int	*ustack;
 
 	i = 0;
-	ustack = stack_copy(stack_a, len_a);
-	while (i < len_a)
+	ustack = stack_copy(stack, len);
+	while (i < len)
 	{
 		if (ustack[i] > ustack[i + 1])
 		{
@@ -85,34 +84,4 @@ int	*algo_secret(int *stack_a, int len_a)
 			i++;
 	}
 	return (ustack);
-}
-
-void	push_chunk(int *stack_a, int *stack_b, int *len_a, int *len_b)
-{
-	int	i;
-	int	j;
-	int	len;
-	int	*restack;
-
-	i = 0;
-	j = 1;
-	restack = algo_secret(stack_a, *len_a);
-	len = *len_a;
-	while (j <= 6)
-	{
-		i = 0;
-		while (i <= *len_a)
-		{
-			if (stack_a[i] <= get_key(restack, len, j))
-			{
-				road_top_a(stack_a, i, *len_a);
-				trick_pb(stack_b, stack_a, len_b, len_a);
-				i = 0;
-			}
-			i++;
-		}
-		j++;
-	}
-	free(restack);
-	restack = NULL;
 }

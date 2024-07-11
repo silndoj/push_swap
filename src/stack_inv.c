@@ -34,7 +34,6 @@ int	*sstack_inv(char *string_int, int *len_a)
 		j++;
 	}
 	free(temp);
-	free(string_int);
 	return (sstack);
 }
 
@@ -43,7 +42,6 @@ char	*args_to_single(char **argv, int len)
 	int		i;
 	int		j;
 	char	*str;
-	char	*temp;
 
 	j = 0;
 	i = 1;
@@ -51,13 +49,8 @@ char	*args_to_single(char **argv, int len)
 	i++;
 	while (argv[i])
 	{
-		temp = str;
-		free(str);
-		str = ft_strjoin(temp, argv[i]);
-		free(temp);
-		temp = str;
-		str = ft_strjoin(temp, " ");
-		free(temp);
+		str = ft_strjoin(str, argv[i]);
+		str = ft_strjoin(str, " ");
 		i++;
 		j++;
 	}
