@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/11 10:23:13 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/14 17:25:52 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ void	algo_100(int *stack_a, int *stack_b, int *len_a, int *len_b);
 void	algo_union(int *stack_a, int *stack_b, int *len_a, int *len_b);
 void	push_b(int *stack_a, int *stack_b, int *len_a, int *len_b);
 void	push_a(int *stack_b, int *stack_a, int *len_b, int *len_a);
+void	push_big_a(int *stack_a, int *stack_b, int *len_a, int *len_b);
+void	road_a_top(int *stack_a, int mid, int len_a);
+void	road_b_top(int *stack_b, int mid, int len_b);
 void	road_top_a(int *stack_a, int mid, int len_a);
 void	road_top_b(int *stack_b, int mid, int len_b);
 
