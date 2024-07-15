@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:52:06 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/14 17:54:06 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/15 18:26:16 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,24 @@ void	push_big_a(int *stack_a, int *stack_b, int *len_a, int *len_b)
 	}
 }
 
-void  algo_100(int *stack_a, int *stack_b, int *len_a, int *len_b)
+void  algo_ultimate(int *stack_a, int *stack_b, int *len_a, int *len_b)
 {
-	while (*len_a >= 1)
+	int	chunk;
+	int	nr;
+
+	chunk = 0;
+	while (*len_a >= 2)
+	{
 		push_b(stack_a, stack_b, len_a, len_b);
+		chunk++;
+	}
+	chunk--;
 	sort_2(stack_a, *len_a);
-	push_big_a(stack_a, stack_b, len_a, len_b);
+	nr = *len_b;
+	while (*len_b >= nr - (nr / chunk))
+		push_a(stack_b, stack_a, len_b, len_a);
+//	while (chunk)
+//	push_big_a(stack_a, stack_b, len_a, len_b);
 }
 
 void  algo_union(int *stack_a, int *stack_b, int *len_a, int *len_b)
@@ -102,5 +114,5 @@ void  algo_union(int *stack_a, int *stack_b, int *len_a, int *len_b)
 	if (*len_a == 4 && check_sorted(stack_a, *len_a))
 		sort_5(stack_a, stack_b, len_a, len_b);
 	else if (*len_a > 4 && check_sorted(stack_a, *len_a))
-		algo_100(stack_a, stack_b, len_a, len_b);
+		algo_ultimate(stack_a, stack_b, len_a, len_b);
 }

@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 19:36:31 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/11 03:30:52 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/15 16:16:30 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,23 @@ char	*args_to_single(char **argv, int len)
 	int		i;
 	int		j;
 	char	*str;
+	char	*temp;
 
 	j = 0;
 	i = 1;
-	str = ft_strjoin(argv[i], " ");
+	temp = ft_strjoin(argv[i], " ");
 	i++;
 	while (argv[i])
 	{
-		str = ft_strjoin(str, argv[i]);
-		str = ft_strjoin(str, " ");
+		str = ft_strjoin(temp, argv[i]);
+		free(temp);
+		temp = ft_strdup(str);
+		str = ft_strjoin(temp, " ");
+		free(temp);
+		temp = ft_strdup(str);
 		i++;
 		j++;
 	}
+	free(temp);
 	return (str);
 }

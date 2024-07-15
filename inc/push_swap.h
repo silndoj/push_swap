@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/14 17:25:52 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/15 17:20:01 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	sort_2(int *stack, int len_a);
 void	sort_3(int *stack, int len_a);
 void	sort_4(int *stack_a, int *stack_b, int *len_a, int *len_b);
 void	sort_5(int *stack_a, int *stack_b, int *len_a, int *len_b);
-void	algo_100(int *stack_a, int *stack_b, int *len_a, int *len_b);
+void	algo_ultimate(int *stack_a, int *stack_b, int *len_a, int *len_b);
 void	algo_union(int *stack_a, int *stack_b, int *len_a, int *len_b);
 void	push_b(int *stack_a, int *stack_b, int *len_a, int *len_b);
 void	push_a(int *stack_b, int *stack_a, int *len_b, int *len_a);
