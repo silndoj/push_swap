@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:52:06 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/15 18:26:16 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/17 20:29:53 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,10 @@ void	road_a_top(int *stack_a, int mid, int len_a)
 
 void	push_b(int *stack_a, int *stack_b, int *len_a, int *len_b)
 {
-	int	i;
 	int	flag;
 	int	mid;
 	int	*restack;
 
-	i = 0;
 	flag = 0;
 	restack = algo_secret(stack_a, *len_a);
 	mid = mid_key(restack, *len_a);
@@ -85,22 +83,8 @@ void	push_big_a(int *stack_a, int *stack_b, int *len_a, int *len_b)
 
 void  algo_ultimate(int *stack_a, int *stack_b, int *len_a, int *len_b)
 {
-	int	chunk;
-	int	nr;
-
-	chunk = 0;
 	while (*len_a >= 2)
-	{
 		push_b(stack_a, stack_b, len_a, len_b);
-		chunk++;
-	}
-	chunk--;
-	sort_2(stack_a, *len_a);
-	nr = *len_b;
-	while (*len_b >= nr - (nr / chunk))
-		push_a(stack_b, stack_a, len_b, len_a);
-//	while (chunk)
-//	push_big_a(stack_a, stack_b, len_a, len_b);
 }
 
 void  algo_union(int *stack_a, int *stack_b, int *len_a, int *len_b)

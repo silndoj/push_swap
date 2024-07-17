@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/15 17:20:01 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/17 20:35:51 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_double(char *needle, char **str, int i);
 long	ft_atoi2(const char *str);
 
 //Stack_Creator_Functions
-char	*args_to_single(char **argv, int len);
+char	*args_to_single(char **argv);
 int		*sstack_inv(char *string_int, int *len_a);
 
 //Stack_A_Options_Functions

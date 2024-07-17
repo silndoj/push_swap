@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 10:07:07 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/14 17:31:22 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/17 20:30:06 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,10 @@ void	road_b_top(int *stack_b, int mid, int len_b)
 
 void	push_a(int *stack_b, int *stack_a, int *len_b, int *len_a)
 {
-	int	i;
 	int	flag;
 	int	mid;
 	int	*restack;
 
-	i = 0;
 	flag = 0;
 	restack = algo_secret(stack_b, *len_b);
 	mid = mid_key(restack, *len_b);

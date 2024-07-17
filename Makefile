@@ -1,4 +1,4 @@
-CFLAGS			=	-g -Wall -Wno-error
+CFLAGS			=	-g -Wall -Werror -Wextra
 NAME			=	push_swap
 
 

@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 18:46:42 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/14 16:56:44 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/17 20:29:26 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	sstack_trick(char *argv)
 {
 	int		*sstack_a;
 	int		*sstack_b;
-	int		i;
+//	int		i;
 	int		len_a;
 	int		len_b;
 
-	i = 0;
+//	i = 0;
 	len_a = 0;
 	len_b = -1;
 	sstack_a = sstack_inv(argv, &len_a);

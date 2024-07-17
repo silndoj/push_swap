@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 14:49:52 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/15 16:37:10 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/17 20:36:23 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 	}
 	else if (argc > 2)
 	{
-		str = args_to_single(argv, argc - 1);
+		str = args_to_single(argv);
 		if (ft_error_single(str))
 			return (1);
 		sstack_trick(str);
