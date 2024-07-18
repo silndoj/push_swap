@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/17 20:35:51 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/18 17:51:17 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	trick_rrr(int *stack_a, int *stack_b, int len_a, int len_b);
 void	shift_up(int *stack, int *len);
 void	shift_down(int *stack, int *len);
 
-
 //Algorithms
 void	sort_2(int *stack, int len_a);
 void	sort_3(int *stack, int len_a);
@@ -69,7 +68,7 @@ void	road_top_a(int *stack_a, int mid, int len_a);
 void	road_top_b(int *stack_b, int mid, int len_b);
 
 //Utils
-int		check_sorted(int *stack_a, int len_a);
+int		check_sorted(int *stack, int len);
 int		*stack_copy(int *stack, int slen);
 int		mid_key(int *stack, int len);
 int		*algo_secret(int *stack, int len);
