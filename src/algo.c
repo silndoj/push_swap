@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:52:06 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/17 20:29:53 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/18 02:05:37 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,29 @@ void	push_big_a(int *stack_a, int *stack_b, int *len_a, int *len_b)
 
 void  algo_ultimate(int *stack_a, int *stack_b, int *len_a, int *len_b)
 {
+	int	chunk;
+	int	restack;
+	int len;
+	int	rlen;
+	int	mid;
+
+	chunk = 0;
 	while (*len_a >= 2)
+	{
 		push_b(stack_a, stack_b, len_a, len_b);
+		chunk++;
+	}
+	chunk--;
+	len = *len_b;
+	while (*len_b >= 0)
+	{
+		rlen = len - (len / chunk);
+		while (*len_b >= rlen)
+		{
+			restack = algo_secret(*stack_b, *len_b - rlen);
+			mid = mid_key(restack, rlen)
+		}
+	}
 }
 
 void  algo_union(int *stack_a, int *stack_b, int *len_a, int *len_b)
