@@ -1,78 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_algo.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/07 06:51:25 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/21 23:02:49 by silndoj          ###   ########.fr       */
+/*   Created: 2024/07/19 15:59:23 by silndoj           #+#    #+#             */
+/*   Updated: 2024/07/21 22:52:52 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	chunk_sorted_a(int *stack, int mid, int len)
+
+int	*ft_memcpy_int(int *dest, int *src, int n)
 {
 	int	i;
 
 	i = 0;
-	while (i <= len)
+	if (!dest && !src)
+		return (dest);
+	while (i < n)
 	{
-		if (stack[i] < mid)
-			return (1);
+		*(dest + i) = *(src + i);
 		i++;
 	}
-	return (0);
+	return (dest);
 }
 
-int	chunk_sorted_b(int *stack, int mid, int len)
+int	*ft_realloc_int(void *src, size_t size)
 {
-	int	i;
-
-	i = 0;
-	while (i <= len)
-	{
-		if (stack[i] > mid)
-			return (1);
-		i++;
-	}
-	return (0);
+	int	*new_src;
+	
+	new_src = (int *) malloc(sizeof(int) * size);
+	new_src = ft_memcpy_int(new_src, src, size);
+	free(src);
+	src = new_src;
+	return (src);
 }
 
-int	*stack_copy(int *stack, int slen)
-{
-	int	i;
-	int	*u_stack;
-
-	i = 0;
-	u_stack = malloc(sizeof(int) * (slen + 1));
-	while (i <= slen)
-	{
-		u_stack[i] = stack[i];
-		i++;
-	}
-	u_stack[slen + 1] = '\0';
-	return (u_stack);
-}
-
-int	mid_key(int *stack, int len)
-{
-	int	key;
-
-	key = stack[len / 2];
-	return (key);
-}
-
-int	*algo_secret(int *stack, int len)
+int	*algo_secret2(int *stack, int *dest, int len)
 {
 	int	i;
 	int	temp;
 	int	*ustack;
-	int	*dest;
 
 	i = 0;
-	dest = malloc(1 * 1);
+	free(dest);
 	ustack = stack_copy(stack, len);
 	while (i < len)
 	{
@@ -86,8 +60,8 @@ int	*algo_secret(int *stack, int len)
 		else
 			i++;
 	}
-	free(dest);
-	ft_memcpy(dest, ustack, len);
+	dest = stack_copy(ustack, len);
 	free(ustack);
+	ustack = NULL;
 	return (dest);
 }

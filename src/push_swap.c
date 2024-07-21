@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 14:49:52 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/17 20:36:23 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/21 11:20:18 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,12 @@ int	main(int argc, char *argv[])
 {
 	char	*str;
 
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	if (argc == 2 && !argv[1][0])
+	{
+		ft_printf("Error\n");
+		return (1);
+	}
+	else if (argc == 1)
 		return (1);
 	else if (argc == 2)
 	{

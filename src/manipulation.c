@@ -6,11 +6,25 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 18:46:42 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/17 20:29:26 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/21 21:48:29 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+void  algo_union(int *stack_a, int *stack_b, int *len_a, int *len_b)
+{
+	if (*len_a == 1 && check_sorted(stack_a, *len_a))
+		sort_2(stack_a, *len_a);
+	if (*len_a == 2 && check_sorted(stack_a, *len_a))
+		sort_3(stack_a, *len_a);
+	if (*len_a == 3 && check_sorted(stack_a, *len_a))
+		sort_4(stack_a, stack_b, len_a, len_b);
+	if (*len_a == 4 && check_sorted(stack_a, *len_a))
+		sort_5(stack_a, stack_b, len_a, len_b);
+	else if (*len_a > 4 && check_sorted(stack_a, *len_a))
+		algo_ultimate(stack_a, stack_b, len_a, len_b);
+}
 
 void	sstack_trick(char *argv)
 {
@@ -33,6 +47,4 @@ void	sstack_trick(char *argv)
 //	}
 	free(sstack_a);
 	free(sstack_b);
-	sstack_a = NULL;
-	sstack_b = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:07:00 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/07 23:09:01 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/20 17:33:48 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		return (dest);
 	while (i < n)
 	{
-		*((char *)(dest + i)) = *((char *)(src + i));
+		*((char *) (dest + i)) = *((char *) (src + i));
 		i++;
 	}
 	return (dest);
@@ -30,9 +30,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 //
 //int main()
 //{
-//	char src[] = "silvestri";
-//	printf("src is : %s\n",src);
-//	char dest[100];
-//	ft_memcpy(dest, src, 5);
-//	printf("dest is : %s\n", dest);
+//	int src[5] = {3, 2, 4, 5, 6};
+//	printf("src is : %d\n",src[2]);
+//	int dest[100];
+//	ft_memcpy(dest, src, 4);
+//	printf("dest is : %d\n", dest[2]);
 //}
