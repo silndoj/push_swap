@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/21 23:00:26 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/22 20:52:49 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ int		mid_key(int *stack, int len);
 int		*algo_secret(int *stack, int len);
 int		chunk_sorted_a(int *stack, int mid, int len);
 int		chunk_sorted_b(int *stack, int mid, int len);
-int		*ft_realloc_int(void *src, size_t size);
-int		*ft_memcpy_int(int *dest, int *src, int len);
+int		*ft_new_chunk(int *src, int chunk, int size);
 
 #endif

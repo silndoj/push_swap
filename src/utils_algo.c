@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 06:51:25 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/21 23:02:49 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/22 20:05:17 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,6 @@ int	chunk_sorted_b(int *stack, int mid, int len)
 	return (0);
 }
 
-int	*stack_copy(int *stack, int slen)
-{
-	int	i;
-	int	*u_stack;
-
-	i = 0;
-	u_stack = malloc(sizeof(int) * (slen + 1));
-	while (i <= slen)
-	{
-		u_stack[i] = stack[i];
-		i++;
-	}
-	u_stack[slen + 1] = '\0';
-	return (u_stack);
-}
-
 int	mid_key(int *stack, int len)
 {
 	int	key;
@@ -69,11 +53,10 @@ int	*algo_secret(int *stack, int len)
 	int	i;
 	int	temp;
 	int	*ustack;
-	int	*dest;
 
 	i = 0;
-	dest = malloc(1 * 1);
-	ustack = stack_copy(stack, len);
+	ustack = malloc(sizeof(int) * len);
+	ft_memcpy(ustack, stack, sizeof(int) * (len + 1));
 	while (i < len)
 	{
 		if (ustack[i] > ustack[i + 1])
@@ -86,8 +69,5 @@ int	*algo_secret(int *stack, int len)
 		else
 			i++;
 	}
-	free(dest);
-	ft_memcpy(dest, ustack, len);
-	free(ustack);
-	return (dest);
+	return (ustack);
 }

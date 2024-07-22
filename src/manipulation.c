@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 18:46:42 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/21 21:48:29 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/22 21:35:21 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ void	sstack_trick(char *argv)
 	len_b = -1;
 	sstack_a = sstack_inv(argv, &len_a);
 	sstack_b = malloc(sizeof(int) * len_a);
+//	sstack_a = ft_new_chunk(sstack_a, 33, len_a + 1);
+//	ft_memcpy(restack, sstack_a, sizeof(int) * (len_a + 1));
 	algo_union(sstack_a, sstack_b, &len_a, &len_b);
-//	while (i <= len_a)
+//	while (i <= len_a + 1)
 //	{
 //		ft_printf("stack_a[%d] = %d\n",i ,sstack_a[i]);
 //		i++;
