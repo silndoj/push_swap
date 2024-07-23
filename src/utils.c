@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:59:23 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/22 21:45:45 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/23 19:53:40 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,30 @@ int	*ft_new_chunk(int *src, int chunk, int size)
 	int	*new_src;
 	int newlen;
 
-	newlen = size + 1;
-	new_src = malloc(sizeof(int) * newlen);
+	newlen = size;
+	new_src = malloc(sizeof(int) * (newlen + 1));
 	ft_memcpy(new_src, src, sizeof(int) * newlen);
 	free(src);
 	new_src[newlen] = chunk;
-//	src = malloc(sizeof(int) * size);
-//	ft_memcpy(src, new_src, sizeof(int) * size);
-//	free(new_src);
+	return (new_src);
+}
+
+int	*ft_plus_stack(int *stack, int len)
+{
+	int	*new_src;
+
+	new_src = malloc(sizeof(int) * (len + 1));
+	ft_memcpy(new_src + 1, stack, sizeof(int) * len);
+	free(stack);
+	return (new_src);
+}
+
+int	*ft_minus_stack(int	*stack, int len)
+{
+	int	*new_src;
+
+	new_src = malloc(sizeof(int) * len);
+	ft_memcpy(new_src, stack + 1, sizeof(int) * (len - 1));
+	free(stack);
 	return (new_src);
 }

@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 06:51:25 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/22 20:05:17 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/23 21:28:22 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	chunk_sorted_a(int *stack, int mid, int len)
 	int	i;
 
 	i = 0;
-	while (i <= len)
+	while (i < len)
 	{
 		if (stack[i] < mid)
 			return (1);
@@ -31,7 +31,7 @@ int	chunk_sorted_b(int *stack, int mid, int len)
 	int	i;
 
 	i = 0;
-	while (i <= len)
+	while (i < len)
 	{
 		if (stack[i] > mid)
 			return (1);
@@ -44,7 +44,7 @@ int	mid_key(int *stack, int len)
 {
 	int	key;
 
-	key = stack[len / 2];
+	key = stack[(len - 1) / 2];
 	return (key);
 }
 
@@ -56,8 +56,8 @@ int	*algo_secret(int *stack, int len)
 
 	i = 0;
 	ustack = malloc(sizeof(int) * len);
-	ft_memcpy(ustack, stack, sizeof(int) * (len + 1));
-	while (i < len)
+	ft_memcpy(ustack, stack, sizeof(int) * len);
+	while (i < len - 1)
 	{
 		if (ustack[i] > ustack[i + 1])
 		{

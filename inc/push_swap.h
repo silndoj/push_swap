@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/22 20:52:49 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/23 22:30:47 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ char	*args_to_single(char **argv);
 
 //Stack_A_Options_Functions
 void	trick_sa(int *stack_a, int len_a);
-void	trick_pa(int *stack_a, int *stack_b, int *len_a, int *len_b);
+void	trick_pa(int **stack_a, int **stack_b, int *len_a, int *len_b);
 void	trick_ra(int *stack_a, int len_a);
 void	trick_rra(int *stack_a, int len_a);
 
 //Stack_B_Options_Functions
 void	trick_sb(int *stack_b, int len_b);
-void	trick_pb(int *stack_b, int *stack_a, int *len_b, int *len_a);
+void	trick_pb(int **stack_b, int **stack_a, int *len_b, int *len_a);
 void	trick_rb(int *stack_b, int len_b);
 void	trick_rrb(int *stack_b, int len_b);
 
@@ -50,19 +50,15 @@ void	trick_ss(int *stack_a, int *stack_b, int len_a, int len_b);
 void	trick_rr(int *stack_a, int *stack_b, int len_a, int len_b);
 void	trick_rrr(int *stack_a, int *stack_b, int len_a, int len_b);
 
-//Shifts_Options
-void	shift_up(int *stack, int *len);
-void	shift_down(int *stack, int *len);
-
 //Algorithms
 void	sort_2(int *stack, int len_a);
 void	sort_3(int *stack, int len_a);
-void	sort_4(int *stack_a, int *stack_b, int *len_a, int *len_b);
-void	sort_5(int *stack_a, int *stack_b, int *len_a, int *len_b);
-void	algo_ultimate(int *stack_a, int *stack_b, int *len_a, int *len_b);
-void	algo_union(int *stack_a, int *stack_b, int *len_a, int *len_b);
-int		push_b(int *stack_a, int *stack_b, int *len_a, int *len_b);
-void	push_a(int *stack_b, int *stack_a, int *len_b, int *len_a);
+void	sort_4(int **stack_a, int **stack_b, int *len_a, int *len_b);
+void	sort_5(int **stack_a, int **stack_b, int *len_a, int *len_b);
+void	algo_ultimate(int **stack_a, int **stack_b, int *len_a, int *len_b);
+void	algo_union(int **stack_a, int **stack_b, int *len_a, int *len_b);
+int		push_b(int **stack_a, int **stack_b, int *len_a, int *len_b);
+int		push_a(int **stack_b, int **stack_a, int *len_b, int *len_a);
 void	push_big_a(int *stack_a, int *stack_b, int *len_a, int *len_b);
 void	road_a_top(int *stack_a, int mid, int len_a);
 void	road_b_top(int *stack_b, int mid, int len_b);
@@ -78,5 +74,7 @@ int		*algo_secret(int *stack, int len);
 int		chunk_sorted_a(int *stack, int mid, int len);
 int		chunk_sorted_b(int *stack, int mid, int len);
 int		*ft_new_chunk(int *src, int chunk, int size);
+int		*ft_minus_stack(int	*stack, int len);
+int		*ft_plus_stack(int	*stack, int len);
 
 #endif

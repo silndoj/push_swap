@@ -1,4 +1,4 @@
-CFLAGS			=	-g -Wall -Werror -Wextra
+CFLAGS			=	-g
 NAME			=	push_swap
 
 
@@ -17,7 +17,6 @@ PUSH_SWAP_SRC	=	src/ft_alpha_error.c \
 					src/tricks_a.c \
 					src/tricks_b.c \
 					src/tricks_ab.c \
-					src/shift_stack.c \
 					src/stack_inv.c \
 					src/sort_specific.c \
 					src/utils_algo.c \
