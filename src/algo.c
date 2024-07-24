@@ -6,36 +6,34 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:52:06 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/23 22:53:16 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/24 18:24:53 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	road_a_top(int *stack_a, int mid, int len_a)
+int	*algo_secret(int *stack, int len)
 {
-	int	flag;
+	int	i;
 	int	temp;
+	int	*ustack;
 
-	flag = 0;
-	temp = stack_a[mid];
-	while (flag == 0)
+	i = 0;
+	ustack = malloc(sizeof(int) * len);
+	ft_memcpy(ustack, stack, sizeof(int) * len);
+	while (i < len - 1)
 	{
-		if (stack_a[0] == temp)
-			flag = 1;
-		while (flag == 0 && mid >= ((len_a - 1) / 2) + 1)
+		if (ustack[i] > ustack[i + 1])
 		{
-			trick_rra(stack_a, len_a);
-			if (stack_a[0] == temp)
-				flag = 1;
+			temp = ustack[i];
+			ustack[i] = ustack[i + 1];
+			ustack[i + 1] = temp;
+			i = 0;
 		}
-		while (flag == 0 && mid < ((len_a - 1) / 2) + 1)
-		{
-			trick_ra(stack_a, len_a);
-			if (stack_a[0] == temp)
-				flag = 1;
-		}
+		else
+			i++;
 	}
+	return (ustack);
 }
 
 int	push_b(int **stack_a, int **stack_b, int *len_a, int *len_b)
@@ -89,10 +87,11 @@ void  algo_ultimate(int **stack_a, int **stack_b, int *len_a, int *len_b)
 	int	j;
 	int	chunk;
 	int *chunk_arr_b;
-	int	*chunk_arr_a;
+//	int	*chunk_arr_a;
 
 	i = 1;
 	chunk_arr_b = malloc(sizeof(int) * 1);
+//	chunk_arr_a = malloc(sizeof(int) * 1);
 	chunk = push_b(stack_a, stack_b, len_a, len_b);
 	chunk_arr_b[0] = chunk;
 	while (*len_a > 2)
@@ -103,12 +102,41 @@ void  algo_ultimate(int **stack_a, int **stack_b, int *len_a, int *len_b)
 	}
 	sort_2(*stack_a, *len_a);
 	i--;
-//	chunk_arr_a = malloc(sizeof(int) * 1);
+	if (!chunk_control_b(*stack_b, chunk_arr_b[i]))
+	{
+		chunk = chunk_arr_b[i];
+		while (chunk >= 0)
+		{
+			trick_pa(stack_a, stack_b, len_a, len_b);
+			chunk--;
+		}
+	}
+//	j = 1;
 //	while (*len_b >= 1)
 //	{
-//		while (chunk_arr_b[i] > 2)
+//		while (chunk_arr_b[i] >= 0)
 //		{
-//			if ()
+//			if (!chunk_control_b(*stack_b, chunk_arr_b[i]))
+//			{
+//				chunk = chunk_arr_b[i];
+//				while (chunk >= 0)
+//				{
+//					trick_pa(stack_a, stack_b, len_a, len_b);
+//					chunk--;
+//				}
+//			}
+//			else if (sizeof(chunk_arr_a) == 1)
+//			{
+//				chunk = push_a(stack_b, stack_a, &chunk_arr_b[i], len_a);
+//				chunk_arr_a[0] = chunk;
+//			}
+//			else
+//			{
+//				chunk = push_a(stack_b, stack_a, &chunk_arr_b[i], len_a);
+//				chunk_arr_a = ft_new_chunk(chunk_arr_a, chunk, j);
+//				j++;
+//			}
+//			i--;
 //		}
 //	}
 	j = 0;

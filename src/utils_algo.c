@@ -6,11 +6,26 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 06:51:25 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/23 21:28:22 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/24 14:08:29 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+int	chunk_control_b(int	*stack_b, int chunk_len)
+{
+	int i;
+
+	i = 0;
+	while (i < chunk_len)
+	{
+		if (stack_b[i] > stack_b[i + 1])
+			i++;
+		else
+			return (1);
+	}
+	return (0);
+}
 
 int	chunk_sorted_a(int *stack, int mid, int len)
 {
@@ -48,26 +63,3 @@ int	mid_key(int *stack, int len)
 	return (key);
 }
 
-int	*algo_secret(int *stack, int len)
-{
-	int	i;
-	int	temp;
-	int	*ustack;
-
-	i = 0;
-	ustack = malloc(sizeof(int) * len);
-	ft_memcpy(ustack, stack, sizeof(int) * len);
-	while (i < len - 1)
-	{
-		if (ustack[i] > ustack[i + 1])
-		{
-			temp = ustack[i];
-			ustack[i] = ustack[i + 1];
-			ustack[i + 1] = temp;
-			i = 0;
-		}
-		else
-			i++;
-	}
-	return (ustack);
-}
