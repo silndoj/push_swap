@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 14:16:26 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/25 01:41:38 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/24 17:07:00 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,18 @@ void	ra_top(int **stack_a, int mid, int *len_a, int *flag)
 	*flag = 1;
 }
 
-int	rrb_top(int **stack_b, int mid, int len_b, int *flag)
+int	rrb_top(int **stack_b, int mid, int *len_b, int *flag)
 {
 	int rrb;
 
 	rrb = 0;
-	trick_rrb(*stack_b, len_b);
+	trick_rrb(*stack_b, *len_b);
 	rrb++;
 	*flag = 1;
 	return (rrb);
 }
 
-int	rb_top(int **stack_b, int mid, int len_b, int *flag)
+int	rb_top(int **stack_b, int mid, int *len_b, int *flag)
 {
 	int rb;
 	int	i;
@@ -77,7 +77,7 @@ int	rb_top(int **stack_b, int mid, int len_b, int *flag)
 	{
 		if ((*stack_b)[0] < mid)
 		{
-			trick_rb(*stack_b, len_b);
+			trick_rb(*stack_b, *len_b);
 			rb++;
 		}
 		else

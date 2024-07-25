@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/25 01:41:17 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/24 17:10:49 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	sort_5(int **stack_a, int **stack_b, int *len_a, int *len_b);
 void	algo_ultimate(int **stack_a, int **stack_b, int *len_a, int *len_b);
 void	algo_union(int **stack_a, int **stack_b, int *len_a, int *len_b);
 int		push_b(int **stack_a, int **stack_b, int *len_a, int *len_b);
-int		push_a(int **stack_b, int **stack_a, int *ch_len, int *len_a);
+int		push_a(int **stack_b, int **stack_a, int *len_b, int *len_a);
 int		*algo_secret(int *stack, int len);
 
 //Utils_Algo
@@ -67,8 +67,8 @@ void	ra_road(int **stack_a, int mid, int *len_a, int *flag);
 void	road_a_top(int *stack_a, int mid, int len_a);
 //-
 void	ra_top(int **stack_a, int mid, int *len_a, int *flag);
-int		rb_top(int **stack_b, int mid, int len_b, int *flag);
-int		rrb_top(int **stack_b, int mid, int len_b, int *flag);
+int		rb_top(int **stack_b, int mid, int *len_b, int *flag);
+int		rrb_top(int **stack_b, int mid, int *len_b, int *flag);
 void	road_top_a(int *stack_a, int mid, int len_a);
 int		road_top_b(int *stack_b, int mid, int len_b);
 //-
