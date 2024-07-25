@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 10:07:07 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/24 17:11:54 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/25 01:42:42 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,12 @@ int	road_top_b(int *stack_b, int mid, int len_b)
 		if (stack_b[0] > mid)
 			flag = 1;
 		if(stack_b[len_b - 1] > mid && flag == 0)
-			rrb_top(&stack_b, mid, &len_b, &flag);
+			rrb = rrb_top(&stack_b, mid, len_b, &flag);
 		else if (flag == 0)
-			rb_top(&stack_b, mid, &len_b, &flag);
+			rb = rb_top(&stack_b, mid, len_b, &flag);
 	}
 	if (rb)
-		return (rb);
+		return (rb * -1);
 	else if (rrb)
 		return (rrb);
 	return (0);
