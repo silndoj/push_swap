@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:52:06 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/24 18:24:53 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/27 22:12:52 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,67 +83,22 @@ int	push_a(int **stack_b, int **stack_a, int *len_b, int *len_a)
 
 void  algo_ultimate(int **stack_a, int **stack_b, int *len_a, int *len_b)
 {
-	int	i;
 	int	j;
+	int i;
 	int	chunk;
 	int *chunk_arr_b;
-//	int	*chunk_arr_a;
 
-	i = 1;
-	chunk_arr_b = malloc(sizeof(int) * 1);
-//	chunk_arr_a = malloc(sizeof(int) * 1);
-	chunk = push_b(stack_a, stack_b, len_a, len_b);
-	chunk_arr_b[0] = chunk;
-	while (*len_a > 2)
-	{
-		chunk = push_b(stack_a, stack_b, len_a, len_b);
-		chunk_arr_b = ft_new_chunk(chunk_arr_b, chunk, i);
-		i++;
-	}
-	sort_2(*stack_a, *len_a);
-	i--;
-	if (!chunk_control_b(*stack_b, chunk_arr_b[i]))
-	{
-		chunk = chunk_arr_b[i];
-		while (chunk >= 0)
-		{
-			trick_pa(stack_a, stack_b, len_a, len_b);
-			chunk--;
-		}
-	}
-//	j = 1;
-//	while (*len_b >= 1)
-//	{
-//		while (chunk_arr_b[i] >= 0)
-//		{
-//			if (!chunk_control_b(*stack_b, chunk_arr_b[i]))
-//			{
-//				chunk = chunk_arr_b[i];
-//				while (chunk >= 0)
-//				{
-//					trick_pa(stack_a, stack_b, len_a, len_b);
-//					chunk--;
-//				}
-//			}
-//			else if (sizeof(chunk_arr_a) == 1)
-//			{
-//				chunk = push_a(stack_b, stack_a, &chunk_arr_b[i], len_a);
-//				chunk_arr_a[0] = chunk;
-//			}
-//			else
-//			{
-//				chunk = push_a(stack_b, stack_a, &chunk_arr_b[i], len_a);
-//				chunk_arr_a = ft_new_chunk(chunk_arr_a, chunk, j);
-//				j++;
-//			}
-//			i--;
-//		}
-//	}
 	j = 0;
-	while (j < i)
+	chunk_arr_b = push_all_b(stack_a, stack_b, len_a, len_b);
+	while (chunk_arr_b[j + 1] > 0)
+		j++;
+	j--;
+	chunk = push_big_a(stack_a, stack_b, len_a, len_b);
+	ft_printf("size of last chunk = %d\n", chunk);
+	while (j >= 0)
 	{
 		ft_printf("size of passed chunk[%d] = %d\n", j, chunk_arr_b[j]);
-		j++;
+		j--;
 	}
 	free(chunk_arr_b);
 }
