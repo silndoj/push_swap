@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 10:07:07 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/27 22:38:21 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/28 00:35:56 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	road_top_a(int *stack_a, int mid, int len_a)
 	{
 		if (stack_a[0] < mid)
 			flag = 1;
-		if (stack_a[len_a - 1] < mid && flag == 0)
+		if (stack_a[len_a] < mid && flag == 0)
 		{
 			trick_rra(stack_a, len_a);
 			flag = 1;
@@ -109,27 +109,45 @@ void	road_top_a(int *stack_a, int mid, int len_a)
 	}
 }
 
+int	road_top_a2(int *stack_a, int mid, int len_a)
+{
+	int	flag;
+	int	i;
+	int a;
+
+	a = 0;
+	i = 0;
+	flag = 0;
+	while (flag == 0)
+	{
+		if (stack_a[0] < mid)
+			flag = 1;
+		if (stack_a[len_a] < mid && flag == 0)
+		{
+			trick_rra(stack_a, len_a);
+			flag = 1;
+		}
+		else if (flag == 0)
+			a = ra_top(&stack_a, mid, &len_a, &flag);
+	}
+	return (a);
+}
+
 int	road_top_b(int *stack_b, int mid, int len_b)
 {
 	int	flag;
-	int	rb;
-	int	rrb;
+	int	b;
 
-	rrb = 0;
-	rb = 0;
+	b = 0;
 	flag = 0;
 	while (flag == 0)
 	{
 		if (stack_b[0] > mid)
 			flag = 1;
-		if(stack_b[len_b - 1] > mid && flag == 0)
+		if(stack_b[len_b] > mid && flag == 0)
 			rrb_top(&stack_b, mid, &len_b, &flag);
 		else if (flag == 0)
-			rb_top(&stack_b, mid, &len_b, &flag);
+			b = rb_top(&stack_b, mid, &len_b, &flag);
 	}
-	if (rb)
-		return (rb);
-	else if (rrb)
-		return (rrb);
-	return (0);
+	return (b);
 }

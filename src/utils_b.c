@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 23:01:45 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/27 23:21:20 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/28 00:15:52 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/push_swap.h"
@@ -19,22 +19,19 @@ void sort_2b(int *stack_b, int len_b)
 
 void	back_top_b(int *stack_b, int b, int len_b)
 {
-	if (b > 0)
+	while (b > 0)
 	{
-		while (b > 0)
-		{
-			trick_rrb(stack_b, len_b);
-			b--;
-		}
+		trick_rrb(stack_b, len_b);
+		b--;
 	}
-	else if (b > 0)
+}
+
+void	back_top_a(int *stack_a, int a, int len_a)
+{
+	while (a > 0)
 	{
-		b *= -1;
-		while (b > 0)
-		{
-			trick_rb(stack_b, len_b);
-			b--;
-		}
+		trick_rra(stack_a, len_a);
+		a--;
 	}
 }
 
