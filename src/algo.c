@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:52:06 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/28 00:36:46 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/28 03:13:42 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,31 +124,30 @@ void  algo_ultimate(int **stack_a, int **stack_b, int *len_a, int *len_b)
 	while (chunk_arr_b[j + 1] > 0)
 		j++;
 	j--;
-	while (j >= 0)
-	{
-		if (chunk_arr_b[j] == 1)
-		{
-			trick_pa(stack_a, stack_b, len_a, len_b);
-			j--;
-		}
-		else if (chunk_arr_b[j] == 2)
-		{
-			sort_2b(*stack_b, *len_b);
-			trick_pa(stack_a, stack_b, len_a, len_b);
-			trick_pa(stack_a, stack_b, len_a, len_b);
-			j--;
-		}
-		else if (chunk_arr_b[j] > 2)
-		{
-			chunk = push_a(stack_b, stack_a, chunk_arr_b[j], len_a);
-			chunk1 = push_b2(stack_a, stack_b, chunk, len_b);
-			j++;
-			chunk_arr_b = ft_new_chunk(chunk_arr_b, chunk1, j);
-		}
-	}
-
-
-	ft_printf("size of last chunk = %d\n", chunk);
+//	while (j >= 0)
+//	{
+//		if (chunk_arr_b[j] == 1)
+//		{
+//			trick_pa(stack_a, stack_b, len_a, len_b);
+//			j--;
+//		}
+//		else if (chunk_arr_b[j] == 2)
+//		{
+//			sort_2b(*stack_b, *len_b);
+//			trick_pa(stack_a, stack_b, len_a, len_b);
+//			trick_pa(stack_a, stack_b, len_a, len_b);
+//			j--;
+//		}
+//		else if (chunk_arr_b[j] > 2)
+//		{
+//			chunk = push_a(stack_b, stack_a, chunk_arr_b[j], len_a);
+//			chunk1 = push_b2(stack_a, stack_b, chunk, len_b);
+//			j++;
+//			chunk_arr_b = ft_new_chunk(chunk_arr_b, chunk1, j);
+//		}
+//	}
+	ft_printf("len_a = %d\n", *len_a);
+	ft_printf("len_b = %d\n", *len_b);
 	while (j >= 0)
 	{
 		ft_printf("size of passed chunk[%d] = %d\n", j, chunk_arr_b[j]);

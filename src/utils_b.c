@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 23:01:45 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/28 00:15:52 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/28 03:05:55 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/push_swap.h"
@@ -26,80 +26,63 @@ void	back_top_b(int *stack_b, int b, int len_b)
 	}
 }
 
-void	back_top_a(int *stack_a, int a, int len_a)
+int	chunk_control_b(int	*stack_b, int chunk_len)
 {
-	while (a > 0)
+	int i;
+
+	i = 0;
+	while (i < chunk_len)
 	{
-		trick_rra(stack_a, len_a);
-		a--;
+		if (stack_b[i] > stack_b[i + 1])
+			i++;
+		else
+			return (1);
 	}
+	return (0);
 }
 
-int	push_big_a(int **stack_a, int **stack_b, int *len_a, int *len_b)
+int	chunk_sorted_b(int *stack, int mid, int len)
+
 {
 	int	i;
-	int b;
-	int	half;
-	int	pos;
-	int	restack;
 
-	pos = 0;
-	half = *len_b / 2;
-	while (*len_b >= half)
+	i = 0;
+	while (i < len)
 	{
-		i = 0;
-		restack = (*stack_b)[0];
-		while (i <= half)
-		{
-			if (restack < ((*stack_b)[i]))
-			{
-				restack = ((*stack_b)[i]);
-				pos = i;
-			}
-			i++;
-		}
-		b = road_b_top(stack_b, pos, *len_b);
-		trick_pa(stack_a, stack_b, len_a, len_b);
-		back_top_b(*stack_b, b, *len_b);
+		if (stack[i] > mid)
+			return (1);
+		i++;
 	}
-	return (half);
+	return (0);
 }
 
-//	while (i >= 0 && flag == 0)
+//int	push_big_a(int **stack_a, int **stack_b, int *len_a, int *len_b)
+//{
+//	int	i;
+//	int b;
+//	int	half;
+//	int	pos;
+//	int	restack;
+//
+//	pos = 0;
+//	half = *len_b / 2;
+//	while (*len_b >= half)
 //	{
-//		if (!chunk_control_b(*stack_b, chunk_arr_b[i]))
+//		i = 0;
+//		restack = (*stack_b)[0];
+//		while (i <= half)
 //		{
-//			chunk = chunk_arr_b[i];
-//			while (chunk > 0)
+//			if (restack < ((*stack_b)[i]))
 //			{
-//				trick_pa(stack_a, stack_b, len_a, len_b);
-//				chunk--;
+//				restack = ((*stack_b)[i]);
+//				pos = i;
 //			}
-//			i--;
+//			i++;
 //		}
-//		ft_printf("next chunk b%d = [%d]\n",i ,chunk_arr_b[i]);
-//		if (chunk_arr_b[i] > 2)
-//		{
-//			chunk = push_a(stack_b, stack_a, &chunk_arr_b[i], len_a);
-//			if (chunk > 2)
-//			{
-//				while (chunk > 2)
-//				{
-//					chunk1 = push_b(stack_a, stack_b, &chunk, len_b);
-//					chunk_arr_b = ft_new_chunk(chunk_arr_b, chunk1, i);
-//					i++;
-//				}
-//				i--;
-//				sort_2(*stack_a, *len_a);
-//			}
-//		}
-//		if (chunk_arr_b[i] == 2)
-//		{
-//			sort_2b(*stack_b, *len_b);
-//			trick_pa(stack_a, stack_b, len_a, len_b);
-//			trick_pa(stack_a, stack_b, len_a, len_b);
-//			chunk_arr_b[i] -= 2;
-//			i--;
-//		}
-//		flag = 1;
+//		b = road_b_top(stack_b, pos, *len_b);
+//		trick_pa(stack_a, stack_b, len_a, len_b);
+//		back_top_b(*stack_b, b, *len_b);
 //	}
+//	return (half);
+//}
+

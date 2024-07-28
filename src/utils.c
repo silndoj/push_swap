@@ -6,11 +6,19 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:59:23 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/23 19:53:40 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/28 03:07:26 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+int	mid_key(int *stack, int len)
+{
+	int	key;
+
+	key = stack[(len - 1) / 2];
+	return (key);
+}
 
 int	*ft_new_chunk(int *src, int chunk, int size)
 {
