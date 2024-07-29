@@ -6,11 +6,20 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 14:16:26 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/28 03:25:51 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/29 01:07:14 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+void	back_top_a(int *stack_a, int a, int len_a)
+{
+	while (a > 0)
+	{
+		trick_rra(stack_a, len_a);
+		a--;
+	}
+}
 
 void	rra_road(int **stack_a, int mid, int *len_a, int *flag)
 {
@@ -68,7 +77,7 @@ int	rb_top(int **stack_b, int mid, int *len_b, int *flag)
 	rb = 0;
 	while (i == 0)
 	{
-		if ((*stack_b)[0] < mid)
+		if ((*stack_b)[0] <= mid)
 		{
 			trick_rb(*stack_b, *len_b);
 			rb++;
