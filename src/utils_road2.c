@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 02:51:15 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/29 01:05:50 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/30 02:33:26 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	road_top_a(int *stack_a, int mid, int len_a)
 	}
 }
 
-int	road_top_a2(int *stack_a, int mid, int len_a)
+int	road_top_a2(int **stack_a, int mid, int len_a)
 {
 	int	flag;
 	int a;
@@ -95,20 +95,15 @@ int	road_top_a2(int *stack_a, int mid, int len_a)
 	flag = 0;
 	while (flag == 0)
 	{
-		if (stack_a[0] < mid)
+		if ((*stack_a)[0] < mid)
 			flag = 1;
-		if (stack_a[len_a - 1] < mid && flag == 0)
-		{
-			trick_rra(stack_a, len_a);
-			flag = 1;
-		}
 		else if (flag == 0)
-			a = ra_top(&stack_a, mid, &len_a, &flag);
+			a = ra_top1(&stack_a, mid, &len_a, &flag);
 	}
 	return (a);
 }
 
-int	road_top_b(int *stack_b, int mid, int len_b)
+int	road_top_b(int **stack_b, int mid, int len_b)
 {
 	int	flag;
 	int	b;
@@ -117,7 +112,7 @@ int	road_top_b(int *stack_b, int mid, int len_b)
 	flag = 0;
 	while (flag == 0)
 	{
-		if (stack_b[0] > mid)
+		if ((*stack_b)[0] > mid)
 			flag = 1;
 		else
 			b = rb_top(&stack_b, mid, &len_b, &flag);
