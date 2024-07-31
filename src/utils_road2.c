@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 02:51:15 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/30 02:33:26 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/30 18:53:02 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	road_b_top(int **stack_b, int mid, int len_b)
 			flag = 1;
 		while (flag == 0 && mid >= (len_b / 2))
 		{
-			trick_rrb(*stack_b, len_b);
+			trick_rrb(stack_b, len_b);
 			b++;
 			if ((*stack_b)[0] == temp)
 			{
@@ -55,7 +55,7 @@ int	road_b_top(int **stack_b, int mid, int len_b)
 		{
 			while (flag == 0 && mid < (len_b / 2))
 			{
-				trick_rb(*stack_b, len_b);
+				trick_rb(stack_b, len_b);
 				b++;
 				if ((*stack_b)[0] == temp)
 					flag = 1;
@@ -78,7 +78,7 @@ void	road_top_a(int *stack_a, int mid, int len_a)
 			flag = 1;
 		if (stack_a[len_a - 1] < mid && flag == 0)
 		{
-			trick_rra(stack_a, len_a);
+			trick_rra(&stack_a, len_a);
 			flag = 1;
 		}
 		else if (flag == 0)

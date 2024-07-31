@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 03:41:00 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/23 20:46:26 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/30 19:14:20 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,34 +39,34 @@ void	trick_pb(int **stack_b, int **stack_a, int *len_b, int *len_a)
 	}
 }
 
-void	trick_rb(int *stack_b, int len_b)
+void	trick_rb(int **stack_b, int len_b)
 {
 	int	i;
 	int	temp;
 
 	i = 0;
-	temp = stack_b[i];
+	temp = (*stack_b)[i];
 	while (i < len_b - 1)
 	{
-		stack_b[i] = stack_b[i + 1];
+		(*stack_b)[i] = (*stack_b)[i + 1];
 		i++;
 	}
-	stack_b[len_b - 1] = temp;
+	(*stack_b)[len_b - 1] = temp;
 	ft_printf("rb\n");
 }
 
-void	trick_rrb(int *stack_b, int len_b)
+void	trick_rrb(int **stack_b, int len_b)
 {
 	int	i;
 	int	temp;
 
 	i = len_b - 1;
-	temp = stack_b[i];
+	temp = (*stack_b)[i];
 	while (i > 0)
 	{
-		stack_b[i] = stack_b[i - 1];
+		(*stack_b)[i] = (*stack_b)[i - 1];
 		i--;
 	}
-	stack_b[0] = temp;
+	(*stack_b)[0] = temp;
 	ft_printf("rrb\n");
 }

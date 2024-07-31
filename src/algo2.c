@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 10:07:07 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/30 03:13:50 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/31 03:10:01 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	push_a(int **stack_b, int **stack_a, int *ch_size, int *len_b, int *len_a)
 	flag = 0;
 	count = 0;
 	restack = algo_secret2(*stack_b, *ch_size);
-	while (count <= *ch_size)
+	while (count < *ch_size)
 	{
 		rb = restack[count];
 		count++;
@@ -83,7 +83,7 @@ int	push_b2(int **stack_a, int **stack_b, int *len_a, int *ch_size, int *len_b)
 	count = 0;
 	restack = algo_secret2(*stack_a, *ch_size);
 	mid = mid_key(restack, *ch_size);
-	while (*ch_size >= 2 && flag == 0)
+	while (*ch_size > 2 && flag == 0)
 	{
 		ra = road_top_a2(stack_a, mid, *len_a);
 		trick_pb(stack_b, stack_a, len_b, len_a);
@@ -93,7 +93,8 @@ int	push_b2(int **stack_a, int **stack_b, int *len_a, int *ch_size, int *len_b)
 		if (!chunk_sorted_a(*stack_a, mid, *ch_size))
 			flag = 1;
 	}
-	sort_2(*stack_a, *ch_size);
+	if (*ch_size == 2)
+		sort_2(*stack_a, *ch_size);
 	free(restack);
 	return (count);
 }

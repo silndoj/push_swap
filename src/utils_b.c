@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 23:01:45 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/28 03:05:55 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/07/30 19:15:53 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/push_swap.h"
@@ -21,7 +21,7 @@ void	back_top_b(int *stack_b, int b, int len_b)
 {
 	while (b > 0)
 	{
-		trick_rrb(stack_b, len_b);
+		trick_rrb(&stack_b, len_b);
 		b--;
 	}
 }
