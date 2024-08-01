@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:59:23 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/31 02:52:50 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/01 01:54:03 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@ int	mid_key(int *stack, int len)
 	int	key;
 
 	key = stack[(len - 1) / 2];
+	return (key);
+}
+
+int	mid_key1(int *stack, int len, int idx)
+{
+	int	key;
+
+	key = stack[(len - 1) / idx];
 	return (key);
 }
 

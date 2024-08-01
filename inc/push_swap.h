@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/31 03:09:55 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/01 01:54:13 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int		chunk_sorted_b(int *stack, int mid, int len);
 
 //Utils
 int		mid_key(int *stack, int len);
+int		mid_key1(int *stack, int len, int idx);
 int		*ft_new_chunk(int *src, int chunk, int size);
 int		*ft_minus_stack(int	*stack, int len);
 int		*ft_plus_stack(int	*stack, int len);

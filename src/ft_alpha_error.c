@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:49:13 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/20 21:48:39 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/01 02:14:58 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,14 @@ int	ft_error_single(char *str)
 			|| ft_atoi2(temp[i]) > INT_MAX
 			|| ft_atoi2(temp[i]) < INT_MIN)
 		{
+			i = 0;
+			while (temp[i])
+			{
+				free(temp[i]);
+				i++;
+			}
+			free(temp);
+
 			ft_printf("Error\n");
 			return (1);
 		}

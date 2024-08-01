@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 23:01:45 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/30 19:15:53 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/01 01:00:24 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/push_swap.h"
@@ -55,34 +55,3 @@ int	chunk_sorted_b(int *stack, int mid, int len)
 	}
 	return (0);
 }
-
-//int	push_big_a(int **stack_a, int **stack_b, int *len_a, int *len_b)
-//{
-//	int	i;
-//	int b;
-//	int	half;
-//	int	pos;
-//	int	restack;
-//
-//	pos = 0;
-//	half = *len_b / 2;
-//	while (*len_b >= half)
-//	{
-//		i = 0;
-//		restack = (*stack_b)[0];
-//		while (i <= half)
-//		{
-//			if (restack < ((*stack_b)[i]))
-//			{
-//				restack = ((*stack_b)[i]);
-//				pos = i;
-//			}
-//			i++;
-//		}
-//		b = road_b_top(stack_b, pos, *len_b);
-//		trick_pa(stack_a, stack_b, len_a, len_b);
-//		back_top_b(*stack_b, b, *len_b);
-//	}
-//	return (half);
-//}
-
