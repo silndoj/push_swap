@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/01 01:54:13 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/02 22:58:59 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		push_big_a(int **stack_a, int **stack_b, int *len_a, int *len_b);
 int		*push_all_b(int **stack_a, int **stack_b, int *len_a, int *len_b);
 int		push_b(int **stack_a, int **stack_b, int *len_a, int *len_b);
 int		push_b2(int **stack_a, int **stack_b, int *len_a, int *ch_size, int *len_b);
-int		push_a(int **stack_b, int **stack_a, int *ch_size, int *len_b, int *len_a);
+int		push_a(int **stack_b, int **stack_a, int *ch_size, int *len_b, int *len_a, int j);
 int		*algo_secret2(int *stack, int len);
 int		*algo_secret(int *stack, int len);
 

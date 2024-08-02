@@ -6,13 +6,13 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 10:07:07 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/01 02:10:26 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/02 23:03:24 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	push_a(int **stack_b, int **stack_a, int *ch_size, int *len_b, int *len_a)
+int	push_a(int **stack_b, int **stack_a, int *ch_size, int *len_b, int *len_a, int j)
 {
 	int	half;
 	int	flag;
@@ -36,7 +36,8 @@ int	push_a(int **stack_b, int **stack_a, int *ch_size, int *len_b, int *len_a)
 		count++;
 		if (!chunk_sorted_b(*stack_b, mid, *ch_size))
 		{
-			back_top_b(*stack_b, rb, *len_b);
+			if (j != 0)
+				back_top_b(*stack_b, rb, *len_b);
 			flag = 1;
 		}
 	}

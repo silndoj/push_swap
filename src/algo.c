@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:52:06 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/01 01:41:47 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/02 22:59:55 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,14 +107,7 @@ void  algo_ultimate(int **stack_a, int **stack_b, int *len_a, int *len_b)
 		}
 		else if (chunk_arr_b[j] > 2)
 		{
-			i = 0;
-			while (i < chunk_arr_b[j])
-			{
-				a = (*stack_b)[i];
-				i++;
-			}
-			i = 0;
-			chunk = push_a(stack_b, stack_a, &chunk_arr_b[j], len_b, len_a);
+			chunk = push_a(stack_b, stack_a, &chunk_arr_b[j], len_b, len_a, j);
 			if (chunk == 2)
 				sort_2(*stack_a, *len_a);
 			else if (chunk > 2)
