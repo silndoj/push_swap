@@ -16,7 +16,6 @@ PUSH_SWAP_SRC	=	src/ft_alpha_error.c \
 					src/manipulation.c \
 					src/tricks_a.c \
 					src/tricks_b.c \
-					src/tricks_ab.c \
 					src/stack_inv.c \
 					src/sort_specific.c \
 					src/utils_algo.c \

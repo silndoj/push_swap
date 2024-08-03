@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 03:41:00 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/02 23:46:22 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/03 07:02:34 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@ void	trick_sb(int *stack_b, int len_b)
 		stack_b[0] = stack_b[1];
 		stack_b[1] = temp;
 		ft_printf("sb\n");
+	}
+}
+
+void	trick_pb2(t_stack *b, t_stack *a)
+{
+	if (a->len >= 0)
+	{
+		if (b->len > 0)
+			b->stack = ft_plus_stack(b->stack, b->len);
+		b->len += 1;
+		(b->stack)[0] = (a->stack)[0];
+		a->stack = ft_minus_stack(a->stack, a->len);
+		a->len -= 1;
+		ft_printf("pb\n");
 	}
 }
 

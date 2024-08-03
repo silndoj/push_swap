@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 19:36:31 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/23 19:31:49 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/03 08:36:38 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,9 @@ int	*sstack_inv(char *string_int, int *len_a)
 char	*args_to_single(char **argv)
 {
 	int		i;
-	int		j;
 	char	*str;
 	char	*temp;
 
-	j = 0;
 	i = 1;
 	temp = ft_strjoin(argv[i], " ");
 	i++;
@@ -65,7 +63,6 @@ char	*args_to_single(char **argv)
 			free(str);
 		}
 		i++;
-		j++;
 	}
 	return (str);
 }

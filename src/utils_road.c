@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 14:16:26 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/03 05:03:27 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/03 08:41:27 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	rra_road(int **stack_a, int mid, int *len_a, int *flag)
 		trick_rra(stack_a, *len_a);
 		if ((*stack_a)[0] == temp)
 			*flag = 1;
-	}	
+	}
 }
 
 void	ra_road(int **stack_a, int mid, int *len_a, int *flag)
@@ -44,13 +44,13 @@ void	ra_road(int **stack_a, int mid, int *len_a, int *flag)
 		trick_ra(stack_a, *len_a);
 		if ((*stack_a)[0] == temp)
 			*flag = 1;
-	}	
+	}
 }
 
 int	ra_top(int **stack_a, int mid, int *len_a, int *flag)
 {
 	int	i;
-	int a;
+	int	a;
 
 	i = 0;
 	a = 0;
@@ -71,7 +71,7 @@ int	ra_top(int **stack_a, int mid, int *len_a, int *flag)
 int	ra_top1(int ***stack_a, int mid, int *len_a, int *flag)
 {
 	int	i;
-	int a;
+	int	a;
 
 	i = 0;
 	a = 0;
@@ -87,26 +87,4 @@ int	ra_top1(int ***stack_a, int mid, int *len_a, int *flag)
 	}
 	*flag = 1;
 	return (a);
-}
-
-int	rb_top(int ***stack_b, int mid, int *len_b, int *flag)
-{
-	int rb;
-	int	i;
-	int a;
-
-	i = 0;
-	rb = 0;
-	while (i == 0)
-	{
-		if ((**stack_b)[0] <= mid)
-		{
-			trick_rb(*stack_b, *len_b);
-			rb++;
-		}
-		else
-		 i = 1;
-	}
-	*flag = 1;
-	return (rb);
 }

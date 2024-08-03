@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 18:46:42 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/02 23:44:01 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/03 08:31:32 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	sstack_trick(char *argv)
 
 	stack_a = malloc(sizeof(t_stack));
 	stack_b = malloc(sizeof(t_stack));
-	stack_a->len = 0;	
+	stack_a->len = 0;
 	stack_b->len = 0;
 	stack_a->stack = sstack_inv(argv, &stack_a->len);
 	stack_b->stack = malloc(sizeof(int) * 1);

@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:49:13 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/01 02:14:58 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/03 08:30:53 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,19 @@ int	ft_double(char *needle, char **str, int pos)
 	return (0);
 }
 
+void	free_2d_array(char ***temp)
+{
+	int	i;
+
+	i = 0;
+	while ((*temp)[i])
+	{
+		free((*temp)[i]);
+		i++;
+	}
+	free(*temp);
+}
+
 int	ft_error_single(char *str)
 {
 	char	**temp;
@@ -88,18 +101,10 @@ int	ft_error_single(char *str)
 				i++;
 			}
 			free(temp);
-
 			ft_printf("Error\n");
 			return (1);
 		}
 		i++;
 	}
-	i = 0;
-	while (temp[i])
-	{
-		free(temp[i]);
-		i++;
-	}
-	free(temp);
-	return (0);
+	return (free_2d_array(&temp), 0);
 }

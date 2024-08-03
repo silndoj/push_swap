@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:52:06 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/03 05:17:10 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/03 08:13:25 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ int	*algo_secret(int *stack, int len)
 
 void	push_a_back_b(t_stack *stack_a, t_stack *stack_b, t_utils *u)
 {
-	int	i;
 	u->chunk = push_a(stack_b, stack_a, &u->chunk_arr[u->r], u->r);
 	if (u->chunk == 2)
 		sort_2(stack_a->stack, stack_a->len);
@@ -83,26 +82,26 @@ void	push_a_back_b(t_stack *stack_a, t_stack *stack_b, t_utils *u)
 	u->r--;
 }
 
-void	push_all_a(t_stack *stack_a, t_stack *stack_b, t_utils *u)
+void	push_all_a(t_stack *a, t_stack *b, t_utils *u)
 {
 	while (u->r >= 0)
 	{
 		if (u->chunk_arr[u->r] == 1)
 		{
-			trick_pa(&stack_a->stack, &stack_b->stack, &stack_a->len, &stack_b->len);
+			trick_pa(&a->stack, &b->stack, &a->len, &b->len);
 			u->chunk_arr[u->r] -= 1;
 			u->r--;
 		}
 		else if (u->chunk_arr[u->r] == 2)
 		{
-			sort_2b(stack_b);
-			trick_pa(&stack_a->stack, &stack_b->stack, &stack_a->len, &stack_b->len);
-			trick_pa(&stack_a->stack, &stack_b->stack, &stack_a->len, &stack_b->len);
+			sort_2b(b);
+			trick_pa(&a->stack, &b->stack, &a->len, &b->len);
+			trick_pa(&a->stack, &b->stack, &a->len, &b->len);
 			u->chunk_arr[u->r] -= 2;
 			u->r--;
 		}
 		else if (u->chunk_arr[u->r] > 2)
-			push_a_back_b(stack_a, stack_b, u);
+			push_a_back_b(a, b, u);
 		if (u->chunk_arr[u->r + 1] > 0)
 			u->r++;
 	}
@@ -113,7 +112,6 @@ void	algo_ultimate(t_stack *stack_a, t_stack *stack_b)
 {
 	int		*chunk_temp;
 	t_utils	*u;
-
 
 	u = malloc(sizeof(t_utils));
 	u->r = 0;

@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/03 05:17:18 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/03 08:33:26 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@
 typedef struct s_stack
 {
 	int	*stack;
-	int len;
+	int	len;
 }	t_stack;
 
 typedef struct s_utils
 {
-	int *chunk_arr;
+	int	*chunk_arr;
 	int	r;
 	int	chunk;
-	int chunk1;
+	int	chunk1;
 	int	half;
 	int	count;
 	int	mid;
@@ -53,12 +53,14 @@ char	*args_to_single(char **argv);
 
 //Stack_A_Options_Functions
 void	trick_sa(int *stack_a, int len_a);
+void	trick_pa2(t_stack *stack_a, t_stack *stack_b);
 void	trick_pa(int **stack_a, int **stack_b, int *len_a, int *len_b);
 void	trick_ra(int **stack_a, int len_a);
 void	trick_rra(int **stack_a, int len_a);
 
 //Stack_B_Options_Functions
 void	trick_sb(int *stack_b, int len_b);
+void	trick_pb2(t_stack *stack_b, t_stack *stack_a);
 void	trick_pb(int **stack_b, int **stack_a, int *len_b, int *len_a);
 void	trick_rb(int **stack_b, int len_b);
 void	trick_rrb(int **stack_b, int len_b);
@@ -66,12 +68,12 @@ void	trick_rrb(int **stack_b, int len_b);
 //Algorithms
 void	algo_union(t_stack *stack_a, t_stack *stack_b);
 void	algo_ultimate(t_stack *stack_a, t_stack *stack_b);
-void	push_all_a(t_stack *stack_a, t_stack *stack_b, t_utils *u);
+void	push_all_a(t_stack *a, t_stack *b, t_utils *u);
 void	push_a_back_b(t_stack *stack_a, t_stack *stack_b, t_utils *u);
 int		*push_all_b(t_stack *stack_a, t_stack *stack_b);
-int		push_b(t_stack *stack_a, t_stack *stack_b);
-int		push_b2(t_stack *stack_a, t_stack *stack_b, int *ch_size);
-int		push_a(t_stack *stack_a, t_stack *stack_b, int *ch_size, int j);
+int		push_b(t_stack *a, t_stack *b);
+int		push_b2(t_stack *a, t_stack *b, int *ch_size);
+int		push_a(t_stack *a, t_stack *b, int *ch_size, int j);
 
 //Sort_Specific
 void	sort_2b(t_stack *stack_b);
@@ -108,5 +110,6 @@ int		mid_key1(int *stack, int len, int idx);
 int		*ft_new_chunk(int *src, int chunk, int size);
 int		*ft_minus_stack(int	*stack, int len);
 int		*ft_plus_stack(int	*stack, int len);
+void	free_2d_array(char ***temp);
 
 #endif
