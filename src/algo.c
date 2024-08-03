@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:52:06 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/02 22:59:55 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/03 05:17:10 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,95 +60,70 @@ int	*algo_secret(int *stack, int len)
 	return (ustack);
 }
 
-void  algo_ultimate(int **stack_a, int **stack_b, int *len_a, int *len_b)
+void	push_a_back_b(t_stack *stack_a, t_stack *stack_b, t_utils *u)
 {
-	int	j;
-	int i;
-	int	a;
-	int	chunk;
-	int	chunk1;
-	int *chunk_arr_b;
-	int *chunk_temp;
-
-	i = 0;
-	j = 0;
-	chunk_temp = push_all_b(stack_a, stack_b, len_a, len_b);
-	while (chunk_temp[j + 1] > 0)
-		j++;
-	chunk_arr_b = malloc(sizeof(int) * j);
-	ft_memcpy(chunk_arr_b, chunk_temp, sizeof(int) * j);
-	j--;
-	free(chunk_temp);
-	while (j >= 0)
+	int	i;
+	u->chunk = push_a(stack_b, stack_a, &u->chunk_arr[u->r], u->r);
+	if (u->chunk == 2)
+		sort_2(stack_a->stack, stack_a->len);
+	else if (u->chunk > 2)
 	{
-		if (!chunk_control_b(*stack_b, chunk_arr_b[j]) && chunk_arr_b[j] > 2)
+		if (check_sorted(stack_a->stack, u->chunk))
 		{
-			int l = 0;
-			while (l < chunk_arr_b[j])
+			while (u->chunk > 2)
 			{
-				trick_pa(stack_a, stack_b, len_a, len_b);
-				l++;
+				u->chunk1 = push_b2(stack_a, stack_b, &u->chunk);
+				u->chunk_arr = ft_new_chunk(u->chunk_arr, u->chunk1, u->r + 1);
+				u->r++;
 			}
-			j--;
+			u->chunk_arr = ft_new_chunk(u->chunk_arr, 0, u->r + 1);
+			u->r++;
 		}
-		if (chunk_arr_b[j] == 1)
-		{
-			trick_pa(stack_a, stack_b, len_a, len_b);
-			chunk_arr_b[j] -= 1;
-			j--;
-		}
-		else if (chunk_arr_b[j] == 2)
-		{
-			sort_2b(*stack_b, *len_b);
-			trick_pa(stack_a, stack_b, len_a, len_b);
-			trick_pa(stack_a, stack_b, len_a, len_b);
-			chunk_arr_b[j] -= 2;
-			j--;
-		}
-		else if (chunk_arr_b[j] > 2)
-		{
-			chunk = push_a(stack_b, stack_a, &chunk_arr_b[j], len_b, len_a, j);
-			if (chunk == 2)
-				sort_2(*stack_a, *len_a);
-			else if (chunk > 2)
-			{
-				if (check_sorted(*stack_a, chunk))
-				{
-					while (chunk > 2)
-					{
-						chunk1 = push_b2(stack_a, stack_b, len_a, &chunk, len_b);
-						chunk_arr_b = ft_new_chunk(chunk_arr_b, chunk1, j + 1);
-						j++;
-					}
-					chunk_arr_b = ft_new_chunk(chunk_arr_b, 0, j + 1);
-					j++;
-				}
-			}
-			j--;
-		}
-		if (chunk_arr_b[j + 1] > 0)
-			j++;
 	}
-//	ft_printf("len_a = %d\n", *len_a);
-//	ft_printf("len_b = %d\n", *len_b);
-//	*len_b -= 1;
-//	while (*len_b >= 0)
-//	{
-//		ft_printf("stack_b[%d] = %d\n", *len_b, (*stack_b)[*len_b]);
-//		(*len_b)--;
-//	}
-//	ft_printf("\n\n");
-//	*len_a -= 1;
-//	while (*len_a >= 0)
-//	{
-//		ft_printf("stack_a[%d] = %d\n", *len_a, (*stack_a)[*len_a]);
-//		(*len_a)--;
-//	}
-//	ft_printf("\n\n");
-//	while (j >= 0)
-//	{
-//		ft_printf("size of passed chunk[%d] = %d\n", j, chunk_arr_b[j]);
-//		j--;
-//	}
-	free(chunk_arr_b);
+	u->r--;
+}
+
+void	push_all_a(t_stack *stack_a, t_stack *stack_b, t_utils *u)
+{
+	while (u->r >= 0)
+	{
+		if (u->chunk_arr[u->r] == 1)
+		{
+			trick_pa(&stack_a->stack, &stack_b->stack, &stack_a->len, &stack_b->len);
+			u->chunk_arr[u->r] -= 1;
+			u->r--;
+		}
+		else if (u->chunk_arr[u->r] == 2)
+		{
+			sort_2b(stack_b);
+			trick_pa(&stack_a->stack, &stack_b->stack, &stack_a->len, &stack_b->len);
+			trick_pa(&stack_a->stack, &stack_b->stack, &stack_a->len, &stack_b->len);
+			u->chunk_arr[u->r] -= 2;
+			u->r--;
+		}
+		else if (u->chunk_arr[u->r] > 2)
+			push_a_back_b(stack_a, stack_b, u);
+		if (u->chunk_arr[u->r + 1] > 0)
+			u->r++;
+	}
+	free(u->chunk_arr);
+}
+
+void	algo_ultimate(t_stack *stack_a, t_stack *stack_b)
+{
+	int		*chunk_temp;
+	t_utils	*u;
+
+
+	u = malloc(sizeof(t_utils));
+	u->r = 0;
+	chunk_temp = push_all_b(stack_a, stack_b);
+	while (chunk_temp[u->r + 1] > 0)
+		u->r++;
+	u->chunk_arr = malloc(sizeof(int) * u->r);
+	ft_memcpy(u->chunk_arr, chunk_temp, sizeof(int) * u->r);
+	u->r--;
+	free(chunk_temp);
+	push_all_a(stack_a, stack_b, u);
+	free(u);
 }

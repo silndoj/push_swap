@@ -6,128 +6,108 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 10:07:07 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/02 23:03:24 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/03 05:15:10 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	push_a(int **stack_b, int **stack_a, int *ch_size, int *len_b, int *len_a, int j)
+int	push_a(t_stack *stack_b, t_stack *stack_a, int *ch_size, int j)
 {
-	int	half;
-	int	flag;
-	int rb;
-	int	count;
-	int	mid;
 	int	*restack;
+	t_utils util;
 
-	half = *ch_size / 2;
-	flag = 0;
-	count = 0;
-	restack = algo_secret2(*stack_b, *ch_size);
-	count = 0;
-	rb = 0;
-	mid = mid_key(restack, *ch_size);
-	while (*ch_size > half && flag == 0)
+	util.r = 0;
+	util.flag = 0;
+	util.count = 0;
+	util.half = *ch_size / 2;
+	restack = algo_secret2(stack_b->stack, *ch_size);
+	util.mid = mid_key(restack, *ch_size);
+	while (*ch_size > util.half && util.flag == 0)
 	{
-		rb += road_top_b(stack_b, mid, *len_b);
-		trick_pa(stack_a, stack_b, len_a, len_b);
+		util.r += road_top_b(&stack_b->stack, util.mid, stack_b->len);
+		trick_pa(&stack_a->stack, &stack_b->stack, &stack_a->len, &stack_b->len);
 		*ch_size -= 1;
-		count++;
-		if (!chunk_sorted_b(*stack_b, mid, *ch_size))
+		util.count++;
+		if (!chunk_sorted_b(stack_b->stack, util.mid, *ch_size))
 		{
 			if (j != 0)
-				back_top_b(*stack_b, rb, *len_b);
-			flag = 1;
+				back_top_b(stack_b->stack, util.r, stack_b->len);
+			util.flag = 1;
 		}
 	}
 	free(restack);
-	return (count);
+	return (util.count);
 }
 
-int	push_b(int **stack_a, int **stack_b, int *len_a, int *len_b)
+int	push_b(t_stack *stack_a, t_stack *stack_b)
 {
-	int	flag;
-	int	count;
-	int	mid;
+	t_utils util;
 	int	*restack;
 
-	flag = 0;
-	count = 0;
-	restack = algo_secret(*stack_a, *len_a);
-//	if (*len_a > 100)
-//		mid = mid_key1(restack, *len_a, 3);
-//	else if (*len_a > 200)
-//		mid = mid_key1(restack, *len_a, 5);
-//	else if (*len_a > 300)
-//		mid = mid_key1(restack, *len_a, 6);
-//	else if (*len_a > 400)
-//		mid = mid_key1(restack, *len_a, 7);
-//	else
-		mid = mid_key(restack, *len_a);
-	while (*len_a > 2 && flag == 0)
+	util.flag = 0;
+	util.count = 0;
+	restack = algo_secret(stack_a->stack, stack_a->len);
+	util.mid = mid_key(restack, stack_a->len);
+	while (stack_a->len > 2 && util.flag == 0)
 	{
-		road_top_a(*stack_a, mid, *len_a);
-		trick_pb(stack_b, stack_a, len_b, len_a);
-		count++;
-		if (!chunk_sorted_a(*stack_a, mid, *len_a))
-			flag = 1;
+		road_top_a(stack_a->stack, util.mid, stack_a->len);
+		trick_pb(&stack_b->stack, &stack_a->stack, &stack_b->len, &stack_a->len);
+		util.count++;
+		if (!chunk_sorted_a(stack_a->stack, util.mid, stack_a->len))
+			util.flag = 1;
 	}
 	free(restack);
-	return (count);
+	return (util.count);
 }
 
-int	push_b2(int **stack_a, int **stack_b, int *len_a, int *ch_size, int *len_b)
+int	push_b2(t_stack *stack_a, t_stack *stack_b, int *ch_size)
 {
-	int	a;
-	int	flag;
-	int ra;
-	int	count;
-	int	mid;
+	t_utils	util;
 	int	*restack;
 
-	flag = 0;
-	ra = 0;
-	count = 0;
-	restack = algo_secret2(*stack_a, *ch_size);
-	mid = mid_key(restack, *ch_size);
-	while (*ch_size > 2 && flag == 0)
+	util.flag = 0;
+	util.r = 0;
+	util.count = 0;
+	restack = algo_secret2(stack_a->stack, *ch_size);
+	util.mid = mid_key(restack, *ch_size);
+	while (*ch_size > 2 && util.flag == 0)
 	{
-		ra += road_top_a2(stack_a, mid, *len_a);
-		trick_pb(stack_b, stack_a, len_b, len_a);
+		util.r += road_top_a2(&stack_a->stack, util.mid, stack_a->len);
+		trick_pb(&stack_b->stack, &stack_a->stack, &stack_b->len, &stack_a->len);
 		*ch_size -= 1;
-		count++;
-		if (!chunk_sorted_a(*stack_a, mid, *ch_size))
+		util.count++;
+		if (!chunk_sorted_a(stack_a->stack, util.mid, *ch_size))
 		{
-			back_top_a(*stack_a, ra, *len_a);
-			flag = 1;
+			back_top_a(stack_a->stack, util.r, stack_a->len);
+			util.flag = 1;
 		}
 	}
 	if (*ch_size == 2)
-		sort_2(*stack_a, *ch_size);
+		sort_2(stack_a->stack, stack_a->len);
 	free(restack);
-	return (count);
+	return (util.count);
 }
 
-int	*push_all_b(int **stack_a, int **stack_b, int *len_a, int *len_b)
+int	*push_all_b(t_stack *stack_a, t_stack *stack_b)
 {
+	t_utils u;
 	int	*chunk_arr_b;
-	int chunk;
 	int	i;
 
 	i = 1;
 	chunk_arr_b = malloc(sizeof(int));
-	chunk = push_b(stack_a, stack_b, len_a, len_b);
-	chunk_arr_b[0] = chunk;
-	while (*len_a > 2)
+	u.chunk = push_b(stack_a, stack_b);
+	chunk_arr_b[0] = u.chunk;
+	while (stack_a->len > 2)
 	{
-		chunk = push_b(stack_a, stack_b, len_a, len_b);
-		chunk_arr_b = ft_new_chunk(chunk_arr_b, chunk, i);
+		u.chunk = push_b(stack_a, stack_b);
+		chunk_arr_b = ft_new_chunk(chunk_arr_b, u.chunk, i);
 		i++;
 	}
 	chunk_arr_b = ft_new_chunk(chunk_arr_b, i, i);
 	chunk_arr_b = ft_new_chunk(chunk_arr_b, 0, i + 1);
 	chunk_arr_b = ft_new_chunk(chunk_arr_b, -1, i + 2);
-	sort_2(*stack_a, *len_a);
+	sort_2(stack_a->stack, stack_a->len);
 	return (chunk_arr_b);
 }

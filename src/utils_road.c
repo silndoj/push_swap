@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 14:16:26 by silndoj           #+#    #+#             */
-/*   Updated: 2024/07/30 18:52:47 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/03 05:03:27 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,11 +99,9 @@ int	rb_top(int ***stack_b, int mid, int *len_b, int *flag)
 	rb = 0;
 	while (i == 0)
 	{
-		a = (**stack_b[0]);
 		if ((**stack_b)[0] <= mid)
 		{
 			trick_rb(*stack_b, *len_b);
-			a = (**stack_b)[*len_b];
 			rb++;
 		}
 		else
