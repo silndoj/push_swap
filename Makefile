@@ -1,4 +1,4 @@
-CFLAGS			=	-g
+CFLAGS			=	-Wall -Wextra -Werror
 NAME			=	push_swap
 
 

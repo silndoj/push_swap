@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 02:51:15 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/03 08:46:53 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/04 11:55:19 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ void	road_a_top(int *stack_a, int mid, int len_a)
 void	road_top_a(int *stack_a, int mid, int len_a)
 {
 	int	flag;
-	int	i;
 
-	i = 0;
 	flag = 0;
 	while (flag == 0)
 	{

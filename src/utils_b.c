@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 23:01:45 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/03 08:41:10 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/04 11:54:57 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/push_swap.h"
@@ -30,7 +30,6 @@ int	rb_top(int ***stack_b, int mid, int *len_b, int *flag)
 {
 	int	rb;
 	int	i;
-	int	a;
 
 	i = 0;
 	rb = 0;
