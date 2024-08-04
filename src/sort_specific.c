@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:22:45 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/02 22:27:29 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/04 11:40:12 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	check_sorted(int *stack_a, int len_a)
 	int	i;
 
 	i = 0;
-	while (i < len_a)
+	while (i < (len_a - 1))
 	{
 		if (stack_a[i] < stack_a[i + 1])
 			i++;
