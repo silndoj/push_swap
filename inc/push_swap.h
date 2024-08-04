@@ -6,7 +6,7 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 21:55:46 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/03 08:33:26 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/04 10:58:59 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_utils
 void	sstack_trick(char *argv);
 
 //Error_Functions
+int		ft_issdigit2(char *str);
 int		ft_issdigit(char str);
 int		ft_sign(char *str);
 int		ft_error_single(char *str);

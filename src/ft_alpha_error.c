@@ -6,21 +6,27 @@
 /*   By: silndoj <silndoj@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:49:13 by silndoj           #+#    #+#             */
-/*   Updated: 2024/08/03 08:30:53 by silndoj          ###   ########.fr       */
+/*   Updated: 2024/08/04 11:05:33 by silndoj          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	ft_issdigit(char str)
+int	ft_issdigit2(char *str)
 {
+	int	i;
 	int	flag;
 
+	i = 0;
 	flag = 0;
-	if (str >= 48 && str <= 57)
-		flag = 0;
-	else
-		flag = 1;
+	while (str[i] && flag == 0)
+	{
+		if (str[i] >= 48 && str[i] <= 57)
+			flag = 0;
+		else
+			flag = 1;
+		i++;
+	}
 	return (flag);
 }
 
@@ -34,10 +40,10 @@ int	ft_sign(char *str)
 		if (str[i] == '+' || str[i] == '-')
 		{
 			i++;
-			if (ft_issdigit(str[i]))
+			if (ft_issdigit2(&str[i]))
 				return (1);
 		}
-		else if (ft_issdigit(str[i]))
+		else if (ft_issdigit2(&str[i]))
 			return (1);
 		i++;
 	}
