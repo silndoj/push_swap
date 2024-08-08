@@ -1,6 +1,6 @@
-CFLAGS			=	-Wall -Wextra -Werror
 NAME			=	push_swap
 
+CFLAGS			=	-Wall -Wextra -Werror
 
 #LIB
 LIBFT_LIB		=	lib/libft/
@@ -37,7 +37,7 @@ all: $(NAME)
 $(NAME): $(OBJ_MAIN) $(OBJ_SRC)
 		@make -C $(LIBFT_LIB)
 		@make -C $(FT_PRINTF_LIB)
-		@gcc $(CFLAGS) -o $(NAME) $(OBJ_MAIN) $(OBJ_SRC) -g $(INCLUDE) 
+		@cc $(CFLAGS) -o $(NAME) $(OBJ_MAIN) $(OBJ_SRC) -g $(INCLUDE) 
 
 lib_clean:
 					make -C $(LIBFT_LIB) clean
